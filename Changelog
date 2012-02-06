@@ -1,0 +1,12 @@
+ ** Marked release 0.3 **
+Fixing Rakefile + ungemmer to work with <gemname>.gemspec
+Finalizing 0.3
+Added population abilities
+Added (untested) .each and Enum to Set
+Pretty major refactor
+Tweaks for Vizier.
+Added "default_contents" functionality
+Replaced contents_from
+Updates for RG 1.5, fix annoying 0 specs issue
+Conductor integration successful
+Cleaning up FileSet alongside CommandSet

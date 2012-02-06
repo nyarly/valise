@@ -1,0 +1,15 @@
+.bundle/
+.conductor/
+.mtn-ignore
+_MTN/
+cli.log
+corundum/
+coverage/
+doc/
+email.txt
+last_run
+pkg/
+rubydoc/
+ui.log
+.rspec
+.simplecov
