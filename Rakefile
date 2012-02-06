@@ -15,9 +15,7 @@ module Corundum
     gem = GemBuilding.new(tk)
     cutter = GemCutter.new(tk,gem)
     email = Email.new(tk)
-    vc = Monotone.new(tk) do |vc|
-      vc.branch = "info.judsonlester.valise"
-    end
+    vc = Git.new(tk)
     task tk.finished_files.build => vc["is_checked_in"]
     docs = YARDoc.new(tk)
   end
