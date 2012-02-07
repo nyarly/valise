@@ -8,5 +8,3 @@ if File::exists?(gemrc)
 end
 source 'http://rubygems.org'
 gemspec
-
-gem 'corundum', :path => "../corundum/"
