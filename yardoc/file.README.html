@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; valise-0.4 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'>
+<h2 id="label-Fileset">Fileset</h2>
+
+<h3 id="label-Simple+file+management">Simple file management</h3>
+
+<p>Applications tend to need preferences and configuration files, which can be
+a bit of a pain to maintain.  Fileset allows you to describe a directory
+structure with raw files or YAML documents, and then populate the local
+directories of the install target.</p>
+
+<h3 id="label-Features">Features</h3>
+
+<p>With FileSet you get the following things:</p>
+<ul><li>
+<p>Default file contents</p>
+</li><li>
+<p>Search paths</p>
+</li><li>
+<p>Even simpler file access</p>
+</li></ul>
+
+<h3 id="label-Usage">Usage</h3>
+
+<p>Essentially, FileSet lets you do this:</p>
+
+<h4 id="label-Search+paths">Search paths</h4>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_set'>set</span> <span class='op'>=</span> <span class='const'>FileSet</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>etc</span><span class='words_sep'> </span><span class='tstring_content'>myapp</span><span class='words_sep'>}</span><span class='comma'>,</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>~</span><span class='words_sep'> </span><span class='tstring_content'>.myapp</span><span class='words_sep'>}</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>%{</span><span class='tstring_content'>.myapp</span><span class='tstring_end'>}</span></span><span class='rparen'>)</span></code></pre>
+
+<p>When you create a fileset, the directories you give it define where in the
+filesystem it will work.</p>
+
+<p>Throughout, FileSet uses arrays of strings to reference files, which is a
+little cheaper when manipulating file paths, and slightly more platform
+agnostic than strings delimited by ‘/’.  Development so far has been
+entirely in Linux, so I’d imagine this will work pretty well on OS X, and
+mostly all right on Windows - although I wouldn’t expect Windows-style
+%ESCAPES% to work.</p>
+
+<h4 id="label-Definition">Definition</h4>
+
+<pre class="ruby"><span class="ruby-identifier">set</span>.<span class="ruby-identifier">define</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">dir</span> <span class="ruby-string">'www'</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">file</span> <span class="ruby-string">'index.html'</span>, <span class="ruby-identifier">align</span>(<span class="ruby-string">&quot;    &lt;&lt;&lt;
+    &lt;html&gt;&lt;body&gt;
+      &lt;h1 class=&quot;ironic&quot;&gt;Sparse Docco&lt;/h1&gt;
+    &lt;/body&gt;&lt;/html&gt;
+&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">dir</span> <span class="ruby-string">'conf'</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">yaml_file</span> <span class="ruby-string">'uses.yaml'</span>, {<span class="ruby-string">'count'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1001</span>}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">dir</span> <span class="ruby-string">'empty'</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>A few features:</p>
+<ul><li>
+<p>a simple DSL for definition of files</p>
+</li><li>
+<p>Basic text or yaml file definition</p>
+</li><li>
+<p>Left flush alignment of file text (aligned an optional ‘&lt;&lt;&lt;’)</p>
+</li><li>
+<p>Definition blocks can be repeated, as can dir blocks, so the FileSet can be
+handed around to different program modules to collect their file
+requirements</p>
+</li></ul>
+
+<h4 id="label-Filesystem+population">Filesystem population</h4>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_set'>set</span><span class='period'>.</span><span class='id identifier rubyid_populate'>populate</span></code></pre>
+
+<p>This step creates directories and writes files.  The first directory listed
+in the search path used to initialize the FileSet that can be written to is
+the destination for the files.  The intention is that an administrator will
+be able to deploy system-wide configuration, while users will still be able
+to install default configs in their home directories.</p>
+
+<p>FileSet::populate won’t overwrite existing files, so re-populating won’t
+wipe out the configuration changes your users have made.</p>
+
+<p>FileSet::populate is intentionally left as a separate step, so that it can
+be initiated as appropriate to the application.  Some apps may want to
+populate automatically every time they’re run, others might want to wait
+for a commandline switch.</p>
+
+<p>If populate is never run, the default values in the define block will be
+returned if the files are read.</p>
+
+<h4 id="label-File+access">File access</h4>
+
+<pre class="ruby"><span class="ruby-identifier">set</span>.<span class="ruby-identifier">load</span>(<span class="ruby-node">%w{www index.html}</span>) <span class="ruby-comment">#=&gt; &quot;&lt;html&gt;&lt;body&gt;....&quot;</span>
+<span class="ruby-identifier">conf</span> = <span class="ruby-identifier">set</span>.<span class="ruby-identifier">get_file</span>(<span class="ruby-node">%w{conf uses.yaml}</span>)
+<span class="ruby-identifier">conf</span>.<span class="ruby-identifier">contents</span>[<span class="ruby-string">'count'</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+<span class="ruby-identifier">conf</span>.<span class="ruby-identifier">store</span>
+</pre>
+
+<p>FileSet#load returns the contents of the file: either a string or the data
+stored in the YAML document.</p>
+
+<p>FileSet#get_file returns a wrapper that allows the contents of the file to
+be accessed, changed, and then rewritten with FileSet#store.</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Mon Feb  6 17:22:11 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
