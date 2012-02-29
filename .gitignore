@@ -14,3 +14,5 @@ rubydoc/
 ui.log
 .rspec
 .simplecov
+.yardoc/
+gh-pages/

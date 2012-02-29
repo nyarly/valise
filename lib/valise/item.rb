@@ -1,3 +1,4 @@
+require 'yaml'
 require 'valise/utils'
 
 module Valise
