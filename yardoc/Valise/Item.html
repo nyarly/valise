@@ -6,7 +6,7 @@
 <title>
   Class: Valise::Item
   
-    &mdash; valise-0.4 RDoc
+    &mdash; valise-0.5 RDoc
   
 </title>
 
@@ -469,15 +469,15 @@
       <pre class="lines">
 
 
-45
 46
 47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_stack'>stack</span><span class='comma'>,</span> <span class='id identifier rubyid_root'>root</span><span class='comma'>,</span> <span class='id identifier rubyid_dump_load'>dump_load</span><span class='rparen'>)</span>
   <span class='ivar'>@stack</span> <span class='op'>=</span> <span class='id identifier rubyid_stack'>stack</span>
@@ -522,12 +522,12 @@
       <pre class="lines">
 
 
-53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_contents'>contents</span>
   <span class='kw'>return</span> <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_merged'>merged</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -564,12 +564,12 @@
       <pre class="lines">
 
 
-52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_root'>root</span>
   <span class='ivar'>@root</span>
@@ -606,12 +606,12 @@
       <pre class="lines">
 
 
-52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stack'>stack</span>
   <span class='ivar'>@stack</span>
@@ -641,12 +641,12 @@
       <pre class="lines">
 
 
-97
 98
-99</pre>
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_contents'>dump_contents</span>
   <span class='ivar'>@dump_load</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_load_contents'>load_contents</span><span class='rparen'>)</span> <span class='comment'>#@contents?
@@ -669,12 +669,12 @@
       <pre class="lines">
 
 
-63
 64
-65</pre>
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_full_path'>full_path</span>
   <span class='ivar'>@root</span><span class='period'>.</span><span class='id identifier rubyid_full_path'>full_path</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
@@ -697,12 +697,12 @@
       <pre class="lines">
 
 
-55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@root</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>//</span><span class='embexpr_beg'>#{</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -725,12 +725,12 @@
       <pre class="lines">
 
 
-101
 102
-103</pre>
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_contents'>load_contents</span>
   <span class='ivar'>@contents</span> <span class='op'>||=</span> <span class='ivar'>@dump_load</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='ivar'>@root</span><span class='period'>.</span><span class='id identifier rubyid_get_from'>get_from</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -753,12 +753,12 @@
       <pre class="lines">
 
 
-79
 80
-81</pre>
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_full_path'>full_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>r</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -803,12 +803,12 @@
       <pre class="lines">
 
 
-71
 72
-73</pre>
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_present?'>present?</span>
   <span class='ivar'>@root</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
@@ -831,12 +831,12 @@
       <pre class="lines">
 
 
-75
 76
-77</pre>
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_raw_file'>raw_file</span>
   <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_full_path'>full_path</span><span class='rparen'>)</span>
@@ -859,12 +859,12 @@
       <pre class="lines">
 
 
-83
 84
-85</pre>
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save'>save</span>
   <span class='id identifier rubyid_root'>root</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -887,12 +887,12 @@
       <pre class="lines">
 
 
-59
 60
-61</pre>
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_segments'>segments</span>
   <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_segments'>segments</span>
@@ -937,12 +937,12 @@
       <pre class="lines">
 
 
-67
 68
-69</pre>
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/item.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_writable?'>writable?</span>
   <span class='ivar'>@root</span><span class='period'>.</span><span class='id identifier rubyid_writable?'>writable?</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
@@ -957,7 +957,7 @@
 </div>
     
     <div id="footer">
-  Generated on Mon Feb  6 17:22:11 2012 by 
+  Generated on Wed Feb 29 01:55:51 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
