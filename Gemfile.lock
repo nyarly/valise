@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    valise (0.4)
+    valise (0.5)
 
 GEM
   remote: http://lrdesign:quiS6Nef@gems.lrdesign.com/
