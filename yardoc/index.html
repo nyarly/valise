@@ -55,18 +55,18 @@
     <iframe id="search_frame"></iframe>
     
     <div id="content"><div id='filecontents'>
-<h2 id="label-Fileset">Fileset</h2>
+<h2 id="label-Valise">Valise</h2>
 
 <h3 id="label-Simple+file+management">Simple file management</h3>
 
 <p>Applications tend to need preferences and configuration files, which can be
-a bit of a pain to maintain.  Fileset allows you to describe a directory
+a bit of a pain to maintain.  Valise allows you to describe a directory
 structure with raw files or YAML documents, and then populate the local
 directories of the install target.</p>
 
 <h3 id="label-Features">Features</h3>
 
-<p>With FileSet you get the following things:</p>
+<p>With Valise::Set you get the following things:</p>
 <ul><li>
 <p>Default file contents</p>
 </li><li>
@@ -77,17 +77,22 @@ directories of the install target.</p>
 
 <h3 id="label-Usage">Usage</h3>
 
-<p>Essentially, FileSet lets you do this:</p>
+<p>Essentially, Valise::Set lets you do this:</p>
 
 <h4 id="label-Search+paths">Search paths</h4>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_set'>set</span> <span class='op'>=</span> <span class='const'>FileSet</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>etc</span><span class='words_sep'> </span><span class='tstring_content'>myapp</span><span class='words_sep'>}</span><span class='comma'>,</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>~</span><span class='words_sep'> </span><span class='tstring_content'>.myapp</span><span class='words_sep'>}</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>%{</span><span class='tstring_content'>.myapp</span><span class='tstring_end'>}</span></span><span class='rparen'>)</span></code></pre>
+<pre class="code ruby"><code><span class='id identifier rubyid_set'>set</span> <span class='op'>=</span> <span class='const'>Valise</span><span class='op'>::</span><span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_rw'>rw</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>.myapp</span><span class='words_sep'>}</span>
+  <span class='id identifier rubyid_rw'>rw</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>~</span><span class='words_sep'> </span><span class='tstring_content'>.myapp</span><span class='words_sep'>}</span> 
+  <span class='id identifier rubyid_rw'>rw</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>etc</span><span class='words_sep'> </span><span class='tstring_content'>myapp</span><span class='words_sep'>}</span>
+  <span class='id identifier rubyid_ro'>ro</span> <span class='id identifier rubyid_from_here'>from_here</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>myapp_defaults</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></code></pre>
 
 <p>When you create a fileset, the directories you give it define where in the
 filesystem it will work.</p>
 
-<p>Throughout, FileSet uses arrays of strings to reference files, which is a
-little cheaper when manipulating file paths, and slightly more platform
+<p>Throughout, Valise::Set uses arrays of strings to reference files, which is
+a little cheaper when manipulating file paths, and slightly more platform
 agnostic than strings delimited by ‘/’.  Development so far has been
 entirely in Linux, so I’d imagine this will work pretty well on OS X, and
 mostly all right on Windows - although I wouldn’t expect Windows-style
@@ -120,8 +125,8 @@ mostly all right on Windows - although I wouldn’t expect Windows-style
 </li><li>
 <p>Left flush alignment of file text (aligned an optional ‘&lt;&lt;&lt;’)</p>
 </li><li>
-<p>Definition blocks can be repeated, as can dir blocks, so the FileSet can be
-handed around to different program modules to collect their file
+<p>Definition blocks can be repeated, as can dir blocks, so the Valise::Set
+can be handed around to different program modules to collect their file
 requirements</p>
 </li></ul>
 
@@ -130,16 +135,16 @@ requirements</p>
 <pre class="code ruby"><code><span class='id identifier rubyid_set'>set</span><span class='period'>.</span><span class='id identifier rubyid_populate'>populate</span></code></pre>
 
 <p>This step creates directories and writes files.  The first directory listed
-in the search path used to initialize the FileSet that can be written to is
-the destination for the files.  The intention is that an administrator will
-be able to deploy system-wide configuration, while users will still be able
-to install default configs in their home directories.</p>
+in the search path used to initialize the Valise::Set that can be written
+to is the destination for the files.  The intention is that an
+administrator will be able to deploy system-wide configuration, while users
+will still be able to install default configs in their home directories.</p>
 
-<p>FileSet::populate won’t overwrite existing files, so re-populating won’t
-wipe out the configuration changes your users have made.</p>
+<p>Valise::Set::populate won’t overwrite existing files, so re-populating
+won’t wipe out the configuration changes your users have made.</p>
 
-<p>FileSet::populate is intentionally left as a separate step, so that it can
-be initiated as appropriate to the application.  Some apps may want to
+<p>Valise::Set::populate is intentionally left as a separate step, so that it
+can be initiated as appropriate to the application.  Some apps may want to
 populate automatically every time they’re run, others might want to wait
 for a commandline switch.</p>
 
@@ -154,15 +159,15 @@ returned if the files are read.</p>
 <span class="ruby-identifier">conf</span>.<span class="ruby-identifier">store</span>
 </pre>
 
-<p>FileSet#load returns the contents of the file: either a string or the data
-stored in the YAML document.</p>
+<p>Valise::Set#load returns the contents of the file: either a string or the
+data stored in the YAML document.</p>
 
-<p>FileSet#get_file returns a wrapper that allows the contents of the file to
-be accessed, changed, and then rewritten with FileSet#store.</p>
+<p>Valise::Set#get_file returns a wrapper that allows the contents of the file
+to be accessed, changed, and then rewritten with Valise::Set#store.</p>
 </div></div>
     
     <div id="footer">
-  Generated on Wed Feb 29 01:55:51 2012 by 
+  Generated on Wed Feb 29 02:17:01 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
