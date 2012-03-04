@@ -1,4 +1,4 @@
-*.swp
+*.sw?
 .bundle/
 .conductor/
 .mtn-ignore
@@ -12,7 +12,5 @@ last_run
 pkg/
 rubydoc/
 ui.log
-.rspec
-.simplecov
 .yardoc/
 gh-pages/
