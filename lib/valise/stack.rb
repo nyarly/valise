@@ -86,7 +86,7 @@ module Valise
       end
 
       def merge_stack(stack)
-        stack.inject({}) do |hash, item|
+        stack.present.inject({}) do |hash, item|
           deep_merge(hash, item.load_contents)
         end
       end

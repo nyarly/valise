@@ -21,14 +21,15 @@ describe Valise do
     sandbox.new :directory => "base/test"
     sandbox.new :directory => "layer2/test"
     sandbox.new :directory => "layer3/test"
-    sandbox.new :file => "base/test/file", :with_contents => YAML::dump(bottom_hash)
-    sandbox.new :file => "layer2/test/file", :with_contents => YAML::dump(middle_hash)
-    sandbox.new :file => "layer3/test/file", :with_contents => YAML::dump(top_hash)
+    sandbox["base/test/file"].contents = YAML::dump(bottom_hash)
+    sandbox["layer2/test/file"].contents = YAML::dump(middle_hash)
+    sandbox["layer3/test/file"].contents = YAML::dump(top_hash)
 
     Valise::Set.define do
       handle "test/file", :yaml, :hash_merge
       rw "layer3"
       rw "layer2"
+      rw "missing"
       rw "base"
     end
   end
@@ -55,7 +56,7 @@ describe Valise do
       top_hash[:a] = 1
 
       item.contents.should == {:a => 1}
-      item.stack.map{|stack| stack.contents[:a]}.should == [1,2,3]
+      item.stack.map{|stack| stack.contents[:a]}.should == [1,2,3,3]
     end
 
     it "should prefer top nil to bottom value" do
@@ -69,7 +70,7 @@ describe Valise do
       middle_hash[:a] = {:a => {:a => 2}}
       top_hash[:a] = {:a => {:a => 1}}
 
-      item.stack.map{|stack| stack.contents[:a][:a][:a]}.should == [1,2,3]
+      item.stack.map{|stack| stack.contents[:a][:a][:a]}.should == [1,2,3,3]
     end
   end
 
