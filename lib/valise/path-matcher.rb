@@ -106,7 +106,7 @@ module Valise
       if segments.empty?
         @value = result
       else
-        raise "File globs can only be used as suffixes"
+        raise ArgumentError, "File globs can only be used as suffixes"
       end
     end
   end

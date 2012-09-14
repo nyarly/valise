@@ -5,13 +5,12 @@ module Valise
       first = lines.shift
       match = /^(\s*)<<</.match(first)
       unless(match.nil?)
-        catch(:haircut) do
-          return lines.map do |line|
-            raise line if /^#{match[1]}|^\s*$/ !~ line
-            throw :haircut if /^#{match[1]}|^\s*$/ !~ line
-            line.sub(/^#{match[1]}/, "")
-          end.join("\n")
-        end
+        return lines.map do |line|
+          unless /^#{match[1]}|^\s*$/ =~ line
+            raise Errors::UnderIndented, line
+          end
+          line.sub(/^#{match[1]}/, "")
+        end.join("\n")
       end
       return string
     end
@@ -29,7 +28,7 @@ module Valise
         if (parts.find{|part| not (String === part or Symbol === part)}.nil?)
           parts = parts.map{|part| part.to_s}
         else
-          raise "path must be composed of strings or symbols"
+          raise ArgumentError, "path must be composed of strings or symbols"
         end
       when String
         parts = parts.split(::File::Separator)
@@ -39,7 +38,7 @@ module Valise
         parts = parts.path
         parts = parts.split(::File::Separator)
       else
-        raise "path must be String, Array of Strings or File"
+        raise ArgumentError, "path must be String, Array of Strings or File"
       end
 
       parts = parts.map do |part|

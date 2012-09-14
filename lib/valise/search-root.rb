@@ -61,7 +61,7 @@ module Valise
 
     def insert(item)
       if(File::exists?(item.full_path))
-        raise WouldClobber.new(Item.new(item.stack.segments, self, nil))
+        raise Errors::WouldClobber.new(Item.new(item.stack.segments, self, nil))
       else
         write(item)
         return item
@@ -79,11 +79,11 @@ module Valise
     end
 
     def write(item)
-      raise ReadOnly
+      raise Errors::ReadOnly
     end
 
     def insert(item)
-      raise ReadOnly
+      raise Errors::ReadOnly
     end
   end
 
@@ -93,7 +93,7 @@ module Valise
     end
 
     def segments
-      raise VirtualSearchPath, "does not have a real path"
+      raise Errors::VirtualSearchPath, "does not have a real path"
     end
 
     def present?(segments)
@@ -126,7 +126,7 @@ module Valise
       check_path = path[0..-2]
       until check_path.empty?
         if @files.has_key?(check_path)
-          raise MalformedTree, "Tried to add items below #{path[0..-2]} which is not a directory"
+          raise Errors::MalformedTree, "Tried to add items below #{path[0..-2]} which is not a directory"
         end
         check_path.pop
       end

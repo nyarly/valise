@@ -10,7 +10,7 @@ module Valise
       if top_part == @stem
         return segments[@stem.length..-1]
       else
-        raise PathOutsideOfRoot
+        raise Errors::PathOutsideOfRoot
       end
     end
 
@@ -35,13 +35,13 @@ module Valise
 
     def writable?(segments)
       @search_root.writable?(under_stem(segments))
-    rescue PathOutsideOfRoot
+    rescue Errors::PathOutsideOfRoot
       return false
     end
 
     def present?(segments)
       @search_root.present?(under_stem(segments))
-    rescue PathOutsideOfRoot
+    rescue Errors::PathOutsideOfRoot
       return false
     end
 
