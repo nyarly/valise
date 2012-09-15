@@ -25,6 +25,9 @@ Gem::Specification.new do |spec|
     doc/Specification
     doc/Specifications
     lib/valise.rb
+    lib/valise/debugging.rb
+    lib/valise/set/definer.rb
+    lib/valise/set.rb
     lib/valise/errors.rb
     lib/valise/item.rb
     lib/valise/path-matcher.rb
