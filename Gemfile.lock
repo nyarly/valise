@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    valise (0.6)
+    valise (0.7)
 
 GEM
   remote: http://rubygems.org/
