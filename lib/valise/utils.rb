@@ -41,13 +41,9 @@ module Valise
         raise ArgumentError, "path must be String, Array of Strings or File"
       end
 
-      parts = parts.map do |part|
-        if /^~/ =~ part
-          ::File::expand_path(part).split(::File::Separator)
-        else
-          part
-        end
-      end.flatten
+      if /^~/ =~ parts[0]
+        parts = ::File::expand_path(parts[0]).split(::File::Separator) + parts[1..-1]
+      end
 
       return parts
     end

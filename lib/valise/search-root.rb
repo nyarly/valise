@@ -37,6 +37,10 @@ module Valise
       "#{self.class.name.split(":").last}:#{[*@segments].join("/")}"
     end
 
+    def to_s
+      "#{[*@segments].join("/")}"
+    end
+
     def full_path(segments)
       repath(@segments + segments)
     end

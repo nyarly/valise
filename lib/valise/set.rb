@@ -6,6 +6,7 @@ require 'valise/stack'
 require 'valise/path-matcher'
 require 'valise/stem-decorator'
 require 'valise/set/definer'
+require 'valise/sub-set'
 
 module Valise
   class Set
@@ -22,10 +23,18 @@ module Valise
       @search_roots.inspect
     end
 
+    def to_s
+      @search_roots.map(&:to_s).join(":")
+    end
+
     def reverse
       set = Set.new
       set.search_roots = @search_roots.reverse
       set
+    end
+
+    def sub_set(path)
+      SubSet.new(self, path)
     end
 
     def define(&block)
