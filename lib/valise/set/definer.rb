@@ -46,7 +46,7 @@ module Valise
         m = /(.*):\d+/.match(caller[0])
         dir = ::File::dirname(::File::expand_path(m[1]))
 
-        unpath(dir) + unpath(rel_path)
+        collapse(unpath(dir) + unpath(rel_path))
       end
 
       def handle(path, serialization, merge_diff = nil)

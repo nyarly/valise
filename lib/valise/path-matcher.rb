@@ -4,6 +4,19 @@ module Valise
   class PathMatcher
     include Unpath
 
+    def self.build(path, value = true)
+      case path
+      when PathMatcher
+        return path
+      when String, Array
+        matcher = PathMatcher.new
+        matcher[path] = value
+        return matcher
+      else
+        raise ArgumentError, "Path matchers can only be built from arrays or strings"
+      end
+    end
+
     def initialize(segment = nil)
       @children = []
       @segment = segment
@@ -58,6 +71,10 @@ module Valise
       store(unpath(pattern), result)
     end
 
+    def ===(path)
+      return !!self[path]
+    end
+
     def store(segments, result)
       if segments.empty?
         @value = result
@@ -66,7 +83,7 @@ module Valise
         target = @children.find {|child| child.segment == index } ||
           case index
           when "**"; DirGlob.new.tap{|m| @children << m}
-          when /^[*].*/; FileGlob.new(index).tap{|m| @children << m}
+          when /.*[*].*/; FileGlob.new(index).tap{|m| @children << m}
           else; PathMatcher.new(index).tap{|m| @children << m}
           end
         target.store(segments, result)
@@ -95,7 +112,7 @@ module Valise
   class FileGlob < PathMatcher
     def initialize(segment)
       super
-      @regex = %r{.*#{segment.sub(/^[*]/,"")}$}
+      @regex = %r{^#{segment.gsub(/[*]/,".*")}$}
     end
 
     def match?(segment)

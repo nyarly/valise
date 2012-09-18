@@ -105,22 +105,30 @@ module Valise
       @search_roots.each(&block)
     end
 
-    def files
+    def glob(path_matcher)
       unless block_given?
-        return self.enum_for(:files)
+        return self.enum_for(:glob, path_matcher)
       end
 
       visited = {}
+      path_matcher = PathMatcher.build(path_matcher)
+
       @search_roots.each do |root|
         root.each do |segments|
+          next unless path_matcher === segments
           unless visited.has_key?(segments)
-            item = find(segments)
+            item = get(segments).present.first
             visited[segments] = item
             yield(item)
           end
         end
       end
       return visited
+    end
+
+    ALL_FILES = PathMatcher.build("**")
+    def files(&block)
+      glob(ALL_FILES, &block)
     end
 
     def not_above(root)
@@ -137,6 +145,10 @@ module Valise
       set = self.class.new
       set.search_roots = @search_roots[(index+1)..-1]
       set
+    end
+
+    def depth_of(root)
+      return @search_roots.index(root)
     end
 
     def [](index)

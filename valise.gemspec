@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "valise"
-  spec.version		= "0.7"
+  spec.version		= "0.8"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
     lib/valise/debugging.rb
     lib/valise/set/definer.rb
     lib/valise/set.rb
+    lib/valise/sub-set.rb
     lib/valise/errors.rb
     lib/valise/item.rb
     lib/valise/path-matcher.rb

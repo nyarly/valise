@@ -48,6 +48,20 @@ module Valise
       return parts
     end
 
+    def collapse(segments)
+      collapsed = []
+      segments.each do |segment|
+        case segment
+        when '.'
+        when '..'
+          collapsed.pop
+        else
+          collapsed.push segment
+        end
+      end
+      collapsed
+    end
+
     def repath(segments)
       case segments
       when Array

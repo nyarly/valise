@@ -132,7 +132,7 @@ module Valise
     end
 
     def initialize(path, set, merge_class, dump_load)
-      @segments = unpath(path)
+      @segments = collapse(unpath(path))
       @valise = set
       @merge_diff = (merge_class || MergeDiff::TopMost).new(self)
       @dump_load = dump_load
@@ -142,6 +142,10 @@ module Valise
 
     def merged(item)
       @merge_diff.merge(item)
+    end
+
+    def rel_path
+      repath(@segments)
     end
 
     def diffed(item, value)
@@ -154,6 +158,10 @@ module Valise
 
     def below(item)
       Stack.new(@segments, @valise.below(item.root), @merge_diff.class, @dump_load)
+    end
+
+    def depth_of(item)
+      @valise.depth_of(item.root)
     end
 
     def each

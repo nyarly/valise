@@ -57,8 +57,16 @@ module Valise
       "#{@root.inspect}//#{@stack.inspect}"
     end
 
+    def depth
+      @stack.depth_of(self)
+    end
+
     def segments
       @stack.segments
+    end
+
+    def rel_path
+      @stack.rel_path
     end
 
     def full_path

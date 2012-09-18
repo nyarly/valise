@@ -12,5 +12,9 @@ module Valise
     def find(path)
       @source.find(@sub_path + unpath(path))
     end
+
+    def glob(path)
+      @source.glob(@sub_path + unpath(path))
+    end
   end
 end
