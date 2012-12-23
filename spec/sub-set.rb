@@ -1,7 +1,8 @@
 require 'valise'
+require 'valise/set'
 require 'file-sandbox'
 
-describe Valise::SubSet do
+describe Valise::Set, "#sub_set" do
   include FileSandbox
 
   before :each do

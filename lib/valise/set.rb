@@ -6,7 +6,6 @@ require 'valise/stack'
 require 'valise/path-matcher'
 require 'valise/stem-decorator'
 require 'valise/set/definer'
-require 'valise/sub-set'
 
 module Valise
   class Set
@@ -38,7 +37,7 @@ module Valise
     def sub_set(path)
       set = Set.new
       set.search_roots = @search_roots.map do |root|
-        SearchRoot.new(root.segments + path)
+        SearchRoot.new(root.segments + unpath(path))
       end
       set.merge_diff = @merge_diff.dup
       set.serialization = @serialization.dup
