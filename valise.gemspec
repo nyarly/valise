@@ -28,7 +28,6 @@ Gem::Specification.new do |spec|
     lib/valise/debugging.rb
     lib/valise/set/definer.rb
     lib/valise/set.rb
-    lib/valise/sub-set.rb
     lib/valise/errors.rb
     lib/valise/item.rb
     lib/valise/path-matcher.rb
