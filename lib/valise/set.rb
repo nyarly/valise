@@ -35,9 +35,12 @@ module Valise
     end
 
     def sub_set(path)
+      segments = unpath(path)
       set = Set.new
       set.search_roots = @search_roots.map do |root|
-        SearchRoot.new(root.segments + unpath(path))
+        new_root = root.dup
+        new_root.segments += segments
+        new_root
       end
       set.merge_diff = @merge_diff.dup
       set.serialization = @serialization.dup

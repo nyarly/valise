@@ -13,7 +13,7 @@ module Valise
       @segments = unpath(path)
     end
 
-    attr_reader :segments
+    attr_accessor :segments
 
     def each
       paths = [[]]

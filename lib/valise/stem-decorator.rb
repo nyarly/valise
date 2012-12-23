@@ -3,6 +3,21 @@ module Valise
     def initialize(stem, search_root)
       @stem, @search_root = stem, search_root
     end
+    attr_reader :stem, :search_root
+    protected :stem, :search_root
+
+    def initialize_copy(other)
+      @stem = other.stem
+      @search_root = other.search_root.dup
+    end
+
+    def segments
+      @search_root.segments
+    end
+
+    def segments=(segments)
+      @search_root.segments = segments
+    end
 
     def under_stem(path)
       segments = unpath(path)

@@ -13,6 +13,9 @@ describe Valise::Set, "#sub_set" do
 
   let :valise do
     Valise.define do
+      stemmed "stem" do
+        rw "."
+      end
       rw "."
     end
   end
@@ -23,6 +26,10 @@ describe Valise::Set, "#sub_set" do
 
   it "should find files as if a new Set" do
     child_set.find("test").contents.should == "TEST"
+  end
+
+  it "should find files under a stem" do
+    child_set.find("stem/test").contents.should == "TEST"
   end
 
   it "should not find files above the sub path" do
