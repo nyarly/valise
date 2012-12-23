@@ -164,6 +164,14 @@ describe Valise, " - the unpath method: " do
     @search_root.unpath(["step", "step/step"]).should == %w{step step step}
   end
 
+  it '/etc/configs => ["", "etc", "configs"]' do
+    @search_root.unpath("/etc/configs").should == [""] + %w{etc configs}
+  end
+
+  it '["", "etc", "configs"] => ["", "etc", "configs"]' do
+    @search_root.unpath(["", "etc", "configs"]).should == [""] + %w{etc configs}
+  end
+
   it 'a File => #path' do
     @file = File.new(__FILE__)
     @path = __FILE__.split("/")

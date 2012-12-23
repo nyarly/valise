@@ -19,6 +19,7 @@ module Valise
 
   module Unpath
     def string_to_segments(string)
+      return string if string.empty?
       string.split(::File::Separator)
     end
 
