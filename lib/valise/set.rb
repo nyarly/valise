@@ -30,11 +30,19 @@ module Valise
     def reverse
       set = Set.new
       set.search_roots = @search_roots.reverse
+      set.merge_diff = @merge_diff.dup
+      set.serialization = @serialization.dup
       set
     end
 
     def sub_set(path)
-      SubSet.new(self, path)
+      set = Set.new
+      set.search_roots = @search_roots.map do |root|
+        SearchRoot.new(root.segments + path)
+      end
+      set.merge_diff = @merge_diff.dup
+      set.serialization = @serialization.dup
+      set
     end
 
     def define(&block)
@@ -68,10 +76,12 @@ module Valise
       return result
     end
 
-    attr_accessor :search_roots
-    protected :search_roots, :search_roots=
+    attr_accessor :search_roots, :merge_diff, :serialization
+    protected :search_roots=, :search_roots,
+      :merge_diff=, :merge_diff,
+      :serialization=, :serialization
 
-      include Unpath
+    include Unpath
     def get(path)
       return Stack.new(path, self,
                        merge_diff(path),

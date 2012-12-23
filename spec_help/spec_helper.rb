@@ -1,3 +1,5 @@
 require 'rspec'
 
-#Ungemmer::ungem_gemspec
+RSpec.configure do |config|
+  config.backtrace_clean_patterns.delete(/gems/)
+end

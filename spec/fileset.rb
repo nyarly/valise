@@ -160,6 +160,10 @@ describe Valise, " - the unpath method: " do
     @search_root.unpath("state").should == %w{state}
   end
 
+  it '["step", "step/step"] => ["step", "step", "step"]' do
+    @search_root.unpath(["step", "step/step"]).should == %w{step step step}
+  end
+
   it 'a File => #path' do
     @file = File.new(__FILE__)
     @path = __FILE__.split("/")

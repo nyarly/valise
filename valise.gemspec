@@ -62,12 +62,12 @@ Gem::Specification.new do |spec|
     spec.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      spec.add_development_dependency "corundum", "~> 0.0.1"
+      spec.add_development_dependency "corundum"
     else
-      spec.add_development_dependency "corundum", "~> 0.0.1"
+      spec.add_development_dependency "corundum"
     end
   else
-    spec.add_development_dependency "corundum", "~> 0.0.1"
+    spec.add_development_dependency "corundum"
   end
 
   spec.has_rdoc		= true

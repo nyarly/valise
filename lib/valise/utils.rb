@@ -18,6 +18,10 @@ module Valise
   end
 
   module Unpath
+    def string_to_segments(string)
+      string.split(::File::Separator)
+    end
+
     def unpath(parts)
       if Array === parts and parts.length == 1
         parts = parts[0]
@@ -26,14 +30,14 @@ module Valise
       case parts
       when Array
         if (parts.find{|part| not (String === part or Symbol === part)}.nil?)
-          parts = parts.map{|part| part.to_s}
+          parts = parts.map{|part| string_to_segments(part.to_s)}.flatten
         else
           raise ArgumentError, "path must be composed of strings or symbols"
         end
       when String
-        parts = parts.split(::File::Separator)
+        parts = string_to_segments(parts)
       when Symbol
-        parts = [parts.to_s]
+        parts = string_to_segments(parts.to_s)
       when ::File
         parts = parts.path
         parts = parts.split(::File::Separator)
