@@ -1,4 +1,3 @@
-
 ## Valise
 
 Cascading configuration, made easy in the hopes that it'll be

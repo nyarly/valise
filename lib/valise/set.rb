@@ -26,25 +26,54 @@ module Valise
       @search_roots.map(&:to_s).join(":")
     end
 
-    def reverse
-      set = Set.new
-      set.search_roots = @search_roots.reverse
+    def transform
+      set = self.class.new
+      set.search_roots = yield @search_roots
       set.merge_diff = @merge_diff.dup
       set.serialization = @serialization.dup
-      set
+      return set
+    end
+
+    def reverse
+      transform do |roots|
+        roots.reverse
+      end
     end
 
     def sub_set(path)
       segments = unpath(path)
-      set = Set.new
-      set.search_roots = @search_roots.map do |root|
-        new_root = root.dup
-        new_root.segments += segments
-        new_root
+      transform do |roots|
+        roots.map do |root|
+          new_root = root.dup
+          new_root.segments += segments
+          new_root
+        end
       end
-      set.merge_diff = @merge_diff.dup
-      set.serialization = @serialization.dup
-      set
+    end
+
+    def stemmed(path)
+      segments = unpath(path)
+      transform do |roots|
+        roots.map do |root|
+          StemDecorator.new(segments, root)
+        end
+      end
+    end
+
+    def not_above(root)
+      index = @search_roots.index(root)
+      raise Errors::RootNotInSet if index.nil?
+      transform do |roots|
+        roots[index..-1]
+      end
+    end
+
+    def below(root)
+      index = @search_roots.index(root)
+      raise Errors::RootNotInSet if index.nil?
+      transform do |roots|
+        roots[(index+1)..-1]
+      end
     end
 
     def define(&block)
@@ -141,22 +170,6 @@ module Valise
     ALL_FILES = PathMatcher.build("**")
     def files(&block)
       glob(ALL_FILES, &block)
-    end
-
-    def not_above(root)
-      index = @search_roots.index(root)
-      raise Errors::RootNotInSet if index.nil?
-      set = self.class.new
-      set.search_roots = @search_roots[index..-1]
-      set
-    end
-
-    def below(root)
-      index = @search_roots.index(root)
-      raise Errors::RootNotInSet if index.nil?
-      set = self.class.new
-      set.search_roots = @search_roots[(index+1)..-1]
-      set
     end
 
     def depth_of(root)
