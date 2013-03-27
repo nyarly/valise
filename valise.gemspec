@@ -69,6 +69,8 @@ Gem::Specification.new do |spec|
     spec.add_development_dependency "corundum"
   end
 
+  spec.add_dependency "diff-lcs", ">= 1.1"
+
   spec.has_rdoc		= true
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
   spec.rdoc_options	= %w{--inline-source }

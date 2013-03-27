@@ -14,15 +14,23 @@ describe Valise, "glob handling" do
     end
   end
 
+  it "should not recognize unmatched path" do
+    valise.serialization_for("not_matched/full").should_not == Valise::Serialization::YAML
+  end
+
+  it "should not recognize path like a path glob" do
+    valise.serialization_for("path/full.notpath").should_not == Valise::Serialization::YAML
+  end
+
   it "should recognize based on a full path" do
-    valise.serialization("test/full").should == Valise::Serialization::YAML
+    valise.serialization_for("test/full").should == Valise::Serialization::YAML
   end
 
   it "should recognize base on a file glob" do
-    valise.serialization("test/by.file").should == Valise::Serialization::YAML
+    valise.serialization_for("test/by.file").should == Valise::Serialization::YAML
   end
 
   it "should recognize based on a path glob" do
-    valise.serialization("path/by.path").should == Valise::Serialization::YAML
+    valise.serialization_for("path/by.path").should == Valise::Serialization::YAML
   end
 end

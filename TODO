@@ -1,3 +1,21 @@
+Considering: a Stack and a PathMatcher could be the same thing.  Thinking: the
+path passed to Stack could have marked regexp patterns - that becomes * for
+fnmatch and regexp.  Stack produces paths with *, we expand those, and match
+the expansion against the regexp.  Allows for e.g. Rails style template
+finding.  Also an intersection, or just an "item_in?()" method would mean same
+class could be used instead of PM for dump/load and merges.
+
+Consequence would be that Stack would have to actually do the searching.
+There's also the difference between find and write - write to a match?  Also,
+in addition to T->B conscerns, we have L->R (or longest first... or "prefer
+matches like").  Or Stack would generate ItemGroups (or PathMatches) which
+would themselves have to be iterated.
+
+One solution to "what does it mean to write to a matching pattern" would be:
+find the "best" match in any root, then write to that path in the best root.
+
+*** Anything below this line needs review: might be done. ***
+
 Child Sets - often there's an overall Valise, and then parts of the app want to
 use only a subdirectory of the set - Valise::Set#child('templates') should
 return a facade on the set to read and write files under 'templates'

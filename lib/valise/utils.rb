@@ -57,9 +57,13 @@ module Valise
       collapsed = []
       segments.each do |segment|
         case segment
-        when '.'
+        when '.', ""
         when '..'
-          collapsed.pop
+          if collapsed.empty?
+            collapsed.push segment
+          else
+            collapsed.pop
+          end
         else
           collapsed.push segment
         end

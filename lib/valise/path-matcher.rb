@@ -3,6 +3,7 @@ require 'valise/utils'
 module Valise
   class PathMatcher
     include Unpath
+    include Enumerable
 
     def self.build(path, value = true)
       case path
@@ -34,6 +35,12 @@ module Valise
         end
       end
       yield(segments, @value) if @value
+    end
+
+    def each(prefix = [])
+      each_pair do |segments, value|
+        yield(segments) if !!value
+      end
     end
 
     def merge!(other)
@@ -112,7 +119,7 @@ module Valise
   class FileGlob < PathMatcher
     def initialize(segment)
       super
-      @regex = %r{^#{segment.gsub(/[*]/,".*")}$}
+      @regex = %r{^#{segment.gsub(/[.]/, "[.]").gsub(/[*]/,".*")}$}
     end
 
     def match?(segment)

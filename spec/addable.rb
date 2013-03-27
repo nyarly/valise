@@ -35,7 +35,7 @@ describe Valise do
   end
 
   it "should combine file handlers" do
-    @sum.merge_diff("test").should == Valise::MergeDiff::HashMerge
-    @sum.serialization("test").should == Valise::Serialization::YAML
+    @sum.merge_diff_for("test").should == Valise::MergeDiff::HashMerge
+    @sum.serialization_for("test").should == Valise::Serialization::YAML
   end
 end

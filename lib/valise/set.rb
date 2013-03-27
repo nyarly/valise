@@ -11,6 +11,7 @@ module Valise
   class Set
     include Debugging
     include Enumerable
+    include Unpath
 
     def initialize
       @search_roots = []
@@ -19,18 +20,24 @@ module Valise
     end
 
     def inspect
-      @search_roots.inspect
+      search_roots.inspect
     end
 
     def to_s
-      @search_roots.map(&:to_s).join(":")
+      search_roots.map(&:to_s).join(":")
+    end
+
+    def exts(*extensions)
+      exts = ExtensionsSetDecorator.new(self)
+      exts.extensions = extensions
+      return exts
     end
 
     def transform
       set = self.class.new
-      set.search_roots = yield @search_roots
-      set.merge_diff = @merge_diff.dup
-      set.serialization = @serialization.dup
+      set.search_roots = yield search_roots
+      set.merge_diff = merge_diff.dup
+      set.serialization = serialization.dup
       return set
     end
 
@@ -61,7 +68,7 @@ module Valise
     end
 
     def not_above(root)
-      index = @search_roots.index(root)
+      index = search_roots.index(root)
       raise Errors::RootNotInSet if index.nil?
       transform do |roots|
         roots[index..-1]
@@ -69,7 +76,7 @@ module Valise
     end
 
     def below(root)
-      index = @search_roots.index(root)
+      index = search_roots.index(root)
       raise Errors::RootNotInSet if index.nil?
       transform do |roots|
         roots[(index+1)..-1]
@@ -87,21 +94,21 @@ module Valise
     end
 
     def prepend_search_root(search_root)
-      @search_roots.unshift(search_root)
+      search_roots.unshift(search_root)
     end
 
     def add_search_root(search_root)
-      @search_roots << search_root
+      search_roots << search_root
     end
 
     def add_handler(segments, serialization_class, merge_diff_class)
-      @merge_diff[segments] = merge_diff_class unless merge_diff_class.nil?
-      @serialization[segments] = serialization_class unless serialization_class.nil?
+      merge_diff[segments] = merge_diff_class unless merge_diff_class.nil?
+      serialization[segments] = serialization_class unless serialization_class.nil?
     end
 
     def +(other)
       result = self.class.new
-      result.search_roots = @search_roots + other.search_roots
+      result.search_roots = search_roots + other.search_roots
       result.merge_handlers(*other.handler_lists)
       result.merge_handlers(*handler_lists)
       return result
@@ -112,38 +119,33 @@ module Valise
       :merge_diff=, :merge_diff,
       :serialization=, :serialization
 
-    include Unpath
-    def get(path)
-      return Stack.new(path, self,
-                       merge_diff(path),
-                       serialization(path))
+    def merge_diff_for(path)
+      merge_diff[unpath(path)]
     end
 
-    def merge_diff(path)
-      @merge_diff[unpath(path)]
+    def serialization_for(path)
+      serialization[unpath(path)]
     end
 
-    def serialization(path)
-      @serialization[unpath(path)]
-    end
-
-    def merge_handlers(merge_diff, serialization)
-      @merge_diff.merge!(merge_diff)
-      @serialization.merge!(serialization)
+    def merge_handlers(new_merge_diff, new_serialization)
+      merge_diff.merge!(new_merge_diff)
+      serialization.merge!(new_serialization)
     end
 
     def handler_lists
-      [@merge_diff, @serialization]
+      [merge_diff, serialization]
+    end
+
+    def get(path)
+      return Stack.new(path, self, merge_diff_for(path), serialization_for(path))
     end
 
     def find(path)
-      item = get(path).present.first
-      return item unless item.nil?
-      raise Errors::NotFound, "#{path} not found in #{@search_roots.inspect}"
+      get(path).find
     end
 
     def each(&block)
-      @search_roots.each(&block)
+      search_roots.each(&block)
     end
 
     def glob(path_matcher)
@@ -154,7 +156,7 @@ module Valise
       visited = {}
       path_matcher = PathMatcher.build(path_matcher)
 
-      @search_roots.each do |root|
+      search_roots.each do |root|
         root.each do |segments|
           next unless path_matcher === segments
           unless visited.has_key?(segments)
@@ -173,11 +175,11 @@ module Valise
     end
 
     def depth_of(root)
-      return @search_roots.index(root)
+      return search_roots.index(root)
     end
 
     def [](index)
-      return @search_roots[index]
+      return search_roots[index]
     end
 
     def populate(to = self)
@@ -189,6 +191,32 @@ module Valise
         next if target.present?
         target.contents = contents
       end
+    end
+  end
+
+  class ExtensionsSetDecorator < Set
+    def initialize(set)
+      @set = set
+      @extensions = []
+    end
+    attr_accessor :extensions
+    attr_reader :set
+    protected :set
+
+    def search_roots
+      set.search_roots
+    end
+
+    def merge_diff
+      set.merge_diff
+    end
+
+    def serialization
+      set.serialization
+    end
+
+    def get(path)
+      set.get(path).ext(*extensions)
     end
   end
 end

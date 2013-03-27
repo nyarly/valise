@@ -53,22 +53,6 @@ describe Valise do
       @valise.find(:text).contents.should == "Other text"
       @valise.find("text").contents.should == "Other text"
     end
-
-#    it "should get yaml files named with strings" do
-#      @valise.find(:yaml).contents.should == {:one => 1}
-#      @valise.find("yaml").contents.should == {:one => 1}
-#    end
-
-#    it "should get yaml files from the filesystem" do
-#      sandbox.new :file => "home/.conductor/yaml", :with_contents => "--- \n- Coo\n"
-#      @valise.find(:yaml).contents.should == ["Coo"]
-#      @valise.find("yaml").contents.should == ["Coo"]
-#    end
-
-#    it "should get yaml files named with symbols" do
-#      @valise.find(:other).contents.should == [3,4,5]
-#      @valise.find("other").contents.should == [3,4,5]
-#    end
   end
 
   share_examples_for "a populating Valise" do

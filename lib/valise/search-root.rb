@@ -15,7 +15,15 @@ module Valise
 
     attr_accessor :segments
 
-    def each
+    #ALL_FILES = PathMatcher.build('**')
+    def each(pathmatch = nil)
+#      pathmatch ||= ALL_FILES
+#      files = pathmatch.fnmatchers(@segments).inject([]) do |list, fnmatch|
+#        list + Dir.glob(fnmatch).find_all{|path| File::file?(path)}
+#      end
+#      pathmatch.sort(files).each
+#
+#
       paths = [[]]
       until paths.empty?
         rel = paths.shift

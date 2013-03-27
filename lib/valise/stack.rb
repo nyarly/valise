@@ -12,6 +12,7 @@
 #
 # * Is it a find-time user thing
 
+require 'valise/utils'
 
 module Valise
   module ItemEnum
@@ -138,14 +139,14 @@ module Valise
       @dump_load = dump_load
     end
 
-    attr_reader :segments
-
-    def merged(item)
-      @merge_diff.merge(item)
-    end
+    attr_reader :segments, :valise
 
     def rel_path
       repath(@segments)
+    end
+
+    def merged(item)
+      @merge_diff.merge(item)
     end
 
     def diffed(item, value)
@@ -153,25 +154,89 @@ module Valise
     end
 
     def not_above(item)
-      Stack.new(@segments, @valise.not_above(item.root), @merge_diff.class, @dump_load)
+      reget(valise.not_above(item.root))
     end
 
     def below(item)
-      Stack.new(@segments, @valise.below(item.root), @merge_diff.class, @dump_load)
-    end
-
-    def depth_of(item)
-      @valise.depth_of(item.root)
-    end
-
-    def each
-      @valise.each do |root|
-        yield(Item.new(self, root, @dump_load))
-      end
+      reget(valise.below(item.root))
     end
 
     def reverse
-      Stack.new(@segments, @valise.reverse, @merge_diff.class, @dump_load)
+      reget(valise.reverse)
+    end
+
+    def depth_of(item)
+      valise.depth_of(item.root)
+    end
+
+    def find
+      item = present.first
+      return item unless item.nil?
+      raise Errors::NotFound, "#{rel_path} not found in #{@valise.inspect}"
+    end
+
+    def exts(*extensions)
+      exts = ExtensionsSearchDecorator.new(self)
+      exts.extensions = extensions
+      return exts
+    end
+
+    def reget(root)
+      root.get(@segments)
+    end
+
+    def item_for(root)
+      Item.new(self, root, @dump_load)
+    end
+
+    def each
+      valise.each do |root|
+        yield(item_for(root))
+      end
+    end
+  end
+
+  class ExtensionsSearchDecorator < Stack
+    def initialize(stack)
+      @stack = stack
+      @extensions = []
+      @stacks = Hash.new{|h,segments| h[segments] = @stack.valise.get(segments) }
+    end
+
+    attr_accessor :extensions
+
+    def valise
+      @stack.valise
+    end
+
+    def reget(root)
+      decorated = self.new(super)
+      decorated.extensions = self.extensions
+      decorated
+    end
+
+    def merged(item)
+      item.stack.merged(item)
+    end
+
+    def diffed(item, value)
+      item.stack.diffed(item, value)
+    end
+
+    def rel_path
+      @stack.rel_path
+    end
+
+    def each
+      return enum_for(:each) unless block_given?
+      @stack.each do |item|
+        @extensions.each do |ext|
+          dir = item.segments.dup
+          file = dir.pop
+          ext_stack = @stacks[dir + [file + ext]]
+          yield(ext_stack.item_for(item.root))
+        end
+      end
     end
   end
 end
