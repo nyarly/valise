@@ -216,7 +216,7 @@ module Valise
     end
 
     def get(path)
-      set.get(path).ext(*extensions)
+      set.get(path).exts(*extensions)
     end
   end
 end

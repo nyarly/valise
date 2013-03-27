@@ -24,8 +24,12 @@ describe Valise::ExtensionsSearchDecorator do
     end
   end
 
-  it "should enumerate paths correctly" do
-    second_exts.map{|item| item.full_path}.should == %w{
+  let :decorated do
+    valise.exts("", ".a", ".b", ".c").exts("", ".x", ".y", ".z")
+  end
+
+  let :filenames do
+    %w{
       top/thing     top/thing.x   top/thing.y   top/thing.z
       top/thing.a   top/thing.a.x top/thing.a.y top/thing.a.z
       top/thing.b   top/thing.b.x top/thing.b.y top/thing.b.z
@@ -41,5 +45,13 @@ describe Valise::ExtensionsSearchDecorator do
       bottom/thing.b   bottom/thing.b.x bottom/thing.b.y bottom/thing.b.z
       bottom/thing.c   bottom/thing.c.x bottom/thing.c.y bottom/thing.c.z
     }
+  end
+
+  it "should enumerate paths correctly" do
+    second_exts.map{|item| item.full_path}.should == filenames
+  end
+
+  it "should enumerate paths correctly from decorated search set" do
+    decorated.get("thing").map{|item| item.full_path}.should == filenames
   end
 end
