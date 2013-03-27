@@ -71,15 +71,6 @@ module Valise
       return File::exists?(full_path(segments))
     end
 
-    def insert(item)
-      if(File::exists?(item.full_path))
-        raise Errors::WouldClobber.new(Item.new(item.stack.segments, self, nil))
-      else
-        write(item)
-        return item
-      end
-    end
-
     def get_from(item)
       File::read(item.full_path)
     end
@@ -91,10 +82,6 @@ module Valise
     end
 
     def write(item)
-      raise Errors::ReadOnly
-    end
-
-    def insert(item)
       raise Errors::ReadOnly
     end
   end

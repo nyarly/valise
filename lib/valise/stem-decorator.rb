@@ -60,10 +60,6 @@ module Valise
       return false
     end
 
-    def insert(item)
-      @search_root.insert(item)
-    end
-
     def get_from(item)
       @search_root.get_from(item)
     end

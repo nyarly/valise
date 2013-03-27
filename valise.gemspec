@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "valise"
-  spec.version		= "0.8.2"
+  spec.version		= "0.9.0"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -36,14 +36,14 @@ Gem::Specification.new do |spec|
     lib/valise/stem-decorator.rb
     lib/valise/utils.rb
     spec/addable.rb
-    spec/dump_load.rb
-    spec/error_handling.rb
+    spec/dump-load.rb
+    spec/error-handling.rb
     spec/fileset.rb
-    spec/glob_handling.rb
+    spec/glob-handling.rb
     spec/item.rb
-    spec/merge_diff.rb
+    spec/merge-diff.rb
     spec/population.rb
-    spec/search_root.rb
+    spec/search-root.rb
     spec/stemming.rb
     spec_help/file-sandbox.rb
     spec_help/gem_test_suite.rb
@@ -69,7 +69,7 @@ Gem::Specification.new do |spec|
     spec.add_development_dependency "corundum"
   end
 
-  spec.add_dependency "diff-lcs", ">= 1.1"
+  #spec.add_dependency "diff-lcs", ">= 1.1"
 
   spec.has_rdoc		= true
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
@@ -77,6 +77,5 @@ Gem::Specification.new do |spec|
   spec.rdoc_options	+= %w{--main doc/README }
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
-
-  spec.post_install_message = "Another tidy package brought to you by Judson"
+  #spec.post_install_message = "Another tidy package brought to you by Judson"
 end
