@@ -6,6 +6,7 @@ require 'valise/stack'
 require 'valise/path-matcher'
 require 'valise/stem-decorator'
 require 'valise/set/definer'
+require 'valise/set/extensions-decorator'
 
 module Valise
   class Set
@@ -28,7 +29,7 @@ module Valise
     end
 
     def exts(*extensions)
-      exts = ExtensionsSetDecorator.new(self)
+      exts = ExtensionsDecorator.new(self)
       exts.extensions = extensions
       return exts
     end
@@ -191,32 +192,6 @@ module Valise
         next if target.present?
         target.contents = contents
       end
-    end
-  end
-
-  class ExtensionsSetDecorator < Set
-    def initialize(set)
-      @set = set
-      @extensions = []
-    end
-    attr_accessor :extensions
-    attr_reader :set
-    protected :set
-
-    def search_roots
-      set.search_roots
-    end
-
-    def merge_diff
-      set.merge_diff
-    end
-
-    def serialization
-      set.serialization
-    end
-
-    def get(path)
-      set.get(path).exts(*extensions)
     end
   end
 end

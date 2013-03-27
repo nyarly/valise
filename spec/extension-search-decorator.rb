@@ -1,7 +1,7 @@
 require 'valise/set'
 require 'valise/stack'
 
-describe Valise::ExtensionsSearchDecorator do
+describe Valise::Stack::ExtensionsDecorator do
   let :valise do
     Valise::Set::define do
       rw "top"
@@ -19,9 +19,7 @@ describe Valise::ExtensionsSearchDecorator do
   end
 
   let :second_exts do
-    Valise::ExtensionsSearchDecorator.new(first_exts).tap do |exts|
-      exts.extensions = ["", ".x", ".y", ".z"]
-    end
+    first_exts.exts("", ".x", ".y", ".z")
   end
 
   let :decorated do
