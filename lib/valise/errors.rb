@@ -12,15 +12,6 @@ module Valise
     class RootNotInSet < Error; end
     class UnderIndented < Error; end
 
-    class WouldClobber < Error
-      def initialize(item)
-        @item = item
-        super("Would clobber #{item.segments.inspect}")
-      end
-
-      attr_reader :item
-    end
-
     class CantPopulate < Error
       def initialize(item, cause)
         @item = item
