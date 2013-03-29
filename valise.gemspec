@@ -27,11 +27,16 @@ Gem::Specification.new do |spec|
 
     lib/valise.rb
     lib/valise/item-enum.rb
-    lib/valise/merge-diff.rb
-    lib/valise/serialization.rb
     lib/valise/debugging.rb
     lib/valise/utils.rb
     lib/valise/errors.rb
+    lib/valise/adapters.rb
+
+    lib/valise/strategies/set.rb
+    lib/valise/strategies/merge-diff.rb
+    lib/valise/strategies/serialization.rb
+
+    lib/valise/adapters/tilt.rb
 
     lib/valise/path-matcher.rb
     lib/valise/search-root.rb
