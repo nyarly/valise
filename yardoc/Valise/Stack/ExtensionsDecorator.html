@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Valise::Stack::ExtensionsDecorator
+  
+    &mdash; valise-0.9.0 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Valise.html" title="Valise (module)">Valise</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Stack.html" title="Valise::Stack (class)">Stack</a></span></span>
+     &raquo; 
+    <span class="title">ExtensionsDecorator</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Valise::Stack::ExtensionsDecorator
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../Stack.html" title="Valise::Stack (class)">Valise::Stack</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../Stack.html" title="Valise::Stack (class)">Valise::Stack</a></span></li>
+          
+            <li class="next">Valise::Stack::ExtensionsDecorator</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/valise/stack/extensions-decorator.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extensions-instance_method" title="#extensions (instance method)">- (Object) <strong>extensions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute extensions.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Stack.html" title="Valise::Stack (class)">Valise::Stack</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Stack.html#segments-instance_method" title="Valise::Stack#segments (method)">#segments</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#diffed-instance_method" title="#diffed (instance method)">- (Object) <strong>diffed</strong>(item, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ExtensionsDecorator) <strong>initialize</strong>(stack) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of ExtensionsDecorator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#merged-instance_method" title="#merged (instance method)">- (Object) <strong>merged</strong>(item) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reget-instance_method" title="#reget (instance method)">- (Object) <strong>reget</strong>(root) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rel_path-instance_method" title="#rel_path (instance method)">- (Object) <strong>rel_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valise-instance_method" title="#valise (instance method)">- (Object) <strong>valise</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../Stack.html" title="Valise::Stack (class)">Valise::Stack</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Stack.html#below-instance_method" title="Valise::Stack#below (method)">#below</a></span>, <span class='object_link'><a href="../Stack.html#depth_of-instance_method" title="Valise::Stack#depth_of (method)">#depth_of</a></span>, <span class='object_link'><a href="../Stack.html#dump_load-instance_method" title="Valise::Stack#dump_load (method)">#dump_load</a></span>, <span class='object_link'><a href="../Stack.html#exts-instance_method" title="Valise::Stack#exts (method)">#exts</a></span>, <span class='object_link'><a href="../Stack.html#find-instance_method" title="Valise::Stack#find (method)">#find</a></span>, <span class='object_link'><a href="../Stack.html#item_for-instance_method" title="Valise::Stack#item_for (method)">#item_for</a></span>, <span class='object_link'><a href="../Stack.html#merge_diff-instance_method" title="Valise::Stack#merge_diff (method)">#merge_diff</a></span>, <span class='object_link'><a href="../Stack.html#not_above-instance_method" title="Valise::Stack#not_above (method)">#not_above</a></span>, <span class='object_link'><a href="../Stack.html#reverse-instance_method" title="Valise::Stack#reverse (method)">#reverse</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../ItemEnum.html" title="Valise::ItemEnum (module)">ItemEnum</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../ItemEnum.html#absent-instance_method" title="Valise::ItemEnum#absent (method)">#absent</a></span>, <span class='object_link'><a href="../ItemEnum.html#present-instance_method" title="Valise::ItemEnum#present (method)">#present</a></span>, <span class='object_link'><a href="../ItemEnum.html#writable-instance_method" title="Valise::ItemEnum#writable (method)">#writable</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Unpath.html" title="Valise::Unpath (module)">Unpath</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Unpath.html#collapse-instance_method" title="Valise::Unpath#collapse (method)">#collapse</a></span>, <span class='object_link'><a href="../Unpath.html#file_from_backtrace-instance_method" title="Valise::Unpath#file_from_backtrace (method)">#file_from_backtrace</a></span>, <span class='object_link'><a href="../Unpath.html#from_here-instance_method" title="Valise::Unpath#from_here (method)">#from_here</a></span>, <span class='object_link'><a href="../Unpath.html#from_here-class_method" title="Valise::Unpath.from_here (method)">from_here</a></span>, <span class='object_link'><a href="../Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="../Unpath.html#string_to_segments-instance_method" title="Valise::Unpath#string_to_segments (method)">#string_to_segments</a></span>, <span class='object_link'><a href="../Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span>, <span class='object_link'><a href="../Unpath.html#up_to-instance_method" title="Valise::Unpath#up_to (method)">#up_to</a></span>, <span class='object_link'><a href="../Unpath.html#up_to-class_method" title="Valise::Unpath.up_to (method)">up_to</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Valise::Stack::ExtensionsDecorator (class)">ExtensionsDecorator</a></span></tt>) <strong>initialize</strong>(stack) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of ExtensionsDecorator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_stack'>stack</span><span class='rparen'>)</span>
+  <span class='ivar'>@stack</span> <span class='op'>=</span> <span class='id identifier rubyid_stack'>stack</span>
+  <span class='ivar'>@extensions</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@stacks</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_h'>h</span><span class='comma'>,</span><span class='id identifier rubyid_segments'>segments</span><span class='op'>|</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_segments'>segments</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_valise'>valise</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="extensions=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="extensions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>extensions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute extensions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_extensions'>extensions</span>
+  <span class='ivar'>@extensions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="diffed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>diffed</strong>(item, value) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_diffed'>diffed</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_diffed'>diffed</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each-instance_method">
+  
+    - (<tt>Object</tt>) <strong>each</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_enum_for'>enum_for</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+  <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='ivar'>@extensions</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ext'>ext</span><span class='op'>|</span>
+      <span class='id identifier rubyid_dir'>dir</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_segments'>segments</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+      <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='id identifier rubyid_dir'>dir</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
+      <span class='id identifier rubyid_ext_stack'>ext_stack</span> <span class='op'>=</span> <span class='ivar'>@stacks</span><span class='lbracket'>[</span><span class='id identifier rubyid_dir'>dir</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span> <span class='op'>+</span> <span class='id identifier rubyid_ext'>ext</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+      <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_ext_stack'>ext_stack</span><span class='period'>.</span><span class='id identifier rubyid_item_for'>item_for</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_root'>root</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_extensions'>extensions</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="merged-instance_method">
+  
+    - (<tt>Object</tt>) <strong>merged</strong>(item) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_merged'>merged</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_merged'>merged</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reget-instance_method">
+  
+    - (<tt>Object</tt>) <strong>reget</strong>(root) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reget'>reget</span><span class='lparen'>(</span><span class='id identifier rubyid_root'>root</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_decorated'>decorated</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>super</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_decorated'>decorated</span><span class='period'>.</span><span class='id identifier rubyid_extensions'>extensions</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extensions'>extensions</span>
+  <span class='id identifier rubyid_decorated'>decorated</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rel_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rel_path</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rel_path'>rel_path</span>
+  <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_rel_path'>rel_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valise-instance_method">
+  
+    - (<tt>Object</tt>) <strong>valise</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/stack/extensions-decorator.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_valise'>valise</span>
+  <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_valise'>valise</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Fri Mar 29 00:02:08 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

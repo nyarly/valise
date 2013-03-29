@@ -6,7 +6,7 @@
 <title>
   Class: Valise::SearchRoot
   
-    &mdash; valise-0.5 RDoc
+    &mdash; valise-0.9.0 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (S)</a> &raquo; 
+    <a href="../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Valise.html" title="Valise (module)">Valise</a></span></span>
      &raquo; 
     <span class="title">SearchRoot</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Valise::SearchRoot
   
   
@@ -117,7 +124,8 @@
   </span>
   
   
-    <span class="note title readonly">readonly</span>
+  
+    
     
   
   
@@ -149,7 +157,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong> </a>
+      <a href="#each-instance_method" title="#each (instance method)">- (Object) <strong>each</strong>(pathmatch = nil) </a>
     
 
     
@@ -160,9 +168,12 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>ALL_FILES = PathMatcher.build('**').</p>
+</div></span>
   
 </li>
 
@@ -175,6 +186,7 @@
 
     
   </span>
+  
   
   
   
@@ -202,6 +214,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -217,6 +230,7 @@
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -237,32 +251,12 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#insert-instance_method" title="#insert (instance method)">- (Object) <strong>insert</strong>(item) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
     
 
     
   </span>
+  
   
   
   
@@ -290,6 +284,29 @@
   
   
   
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -305,6 +322,7 @@
 
     
   </span>
+  
   
   
   
@@ -332,6 +350,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -351,19 +370,22 @@
   
   
   
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Unpath.html" title="Valise::Unpath (module)">Unpath</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Unpath.html#collapse-instance_method" title="Valise::Unpath#collapse (method)">#collapse</a></span>, <span class='object_link'><a href="Unpath.html#file_from_backtrace-instance_method" title="Valise::Unpath#file_from_backtrace (method)">#file_from_backtrace</a></span>, <span class='object_link'><a href="Unpath.html#from_here-instance_method" title="Valise::Unpath#from_here (method)">#from_here</a></span>, <span class='object_link'><a href="Unpath.html#from_here-class_method" title="Valise::Unpath.from_here (method)">from_here</a></span>, <span class='object_link'><a href="Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="Unpath.html#string_to_segments-instance_method" title="Valise::Unpath#string_to_segments (method)">#string_to_segments</a></span>, <span class='object_link'><a href="Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span>, <span class='object_link'><a href="Unpath.html#up_to-instance_method" title="Valise::Unpath#up_to (method)">#up_to</a></span>, <span class='object_link'><a href="Unpath.html#up_to-class_method" title="Valise::Unpath.up_to (method)">up_to</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Valise::SearchRoot (class)">SearchRoot</a></span></tt>) <strong>initialize</strong>(path) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>A new instance of SearchRoot</p>
@@ -401,16 +423,17 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id=""></span>
-      <span id="segments-instance_method"></span>
+      <span id="segments=-instance_method"></span>
       <div class="method_details first">
-  <p class="signature first" id="segments-instance_method">
+  <h3 class="signature first" id="segments-instance_method">
   
-    - (<tt>Object</tt>) <strong>segments</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Object</tt>) <strong>segments</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>Returns the value of attribute segments</p>
@@ -447,22 +470,34 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="each-instance_method">
+  <h3 class="signature first" id="each-instance_method">
   
-    - (<tt>Object</tt>) <strong>each</strong> 
+    - (<tt>Object</tt>) <strong>each</strong>(pathmatch = nil) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ALL_FILES = PathMatcher.build('**')</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-18
 19
 20
 21
@@ -478,13 +513,28 @@
 31
 32
 33
-34</pre>
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span>
-  <span class='id identifier rubyid_paths'>paths</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='id identifier rubyid_pathmatch'>pathmatch</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='comment'>#      pathmatch ||= ALL_FILES
+</span><span class='comment'>#      files = pathmatch.fnmatchers(@segments).inject([]) do |list, fnmatch|
+</span><span class='comment'>#        list + Dir.glob(fnmatch).find_all{|path| File::file?(path)}
+</span><span class='comment'>#      end
+</span><span class='comment'>#      pathmatch.sort(files).each
+</span><span class='comment'>#
+</span><span class='comment'>#
+</span>  <span class='id identifier rubyid_paths'>paths</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
   <span class='kw'>until</span> <span class='id identifier rubyid_paths'>paths</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
     <span class='id identifier rubyid_rel'>rel</span> <span class='op'>=</span> <span class='id identifier rubyid_paths'>paths</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span>
     <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='id identifier rubyid_repath'>repath</span><span class='lparen'>(</span><span class='ivar'>@segments</span> <span class='op'>+</span> <span class='id identifier rubyid_rel'>rel</span><span class='rparen'>)</span>
@@ -506,24 +556,26 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="full_path-instance_method">
+  <h3 class="signature " id="full_path-instance_method">
   
     - (<tt>Object</tt>) <strong>full_path</strong>(segments) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_full_path'>full_path</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_repath'>repath</span><span class='lparen'>(</span><span class='ivar'>@segments</span> <span class='op'>+</span> <span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
@@ -534,24 +586,26 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="get_from-instance_method">
+  <h3 class="signature " id="get_from-instance_method">
   
     - (<tt>Object</tt>) <strong>get_from</strong>(item) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-71
-72
-73</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_from'>get_from</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
   <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_full_path'>full_path</span><span class='rparen'>)</span>
@@ -562,62 +616,26 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="insert-instance_method">
-  
-    - (<tt>Object</tt>) <strong>insert</strong>(item) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-62
-63
-64
-65
-66
-67
-68
-69</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 62</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
-  <span class='kw'>if</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_full_path'>full_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>WouldClobber</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_stack'>stack</span><span class='period'>.</span><span class='id identifier rubyid_segments'>segments</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_item'>item</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="inspect-instance_method">
+  <h3 class="signature " id="inspect-instance_method">
   
     - (<tt>Object</tt>) <strong>inspect</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='lbracket'>[</span><span class='op'>*</span><span class='ivar'>@segments</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -628,13 +646,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="present?-instance_method">
+  <h3 class="signature " id="present?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>present?</strong>(segments) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -642,7 +662,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -662,12 +682,12 @@
       <pre class="lines">
 
 
-58
-59
-60</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_present?'>present?</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_full_path'>full_path</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -678,13 +698,45 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="writable?-instance_method">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_s</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='lbracket'>[</span><span class='op'>*</span><span class='ivar'>@segments</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writable?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>writable?</strong>(segments) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -692,7 +744,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -712,13 +764,13 @@
       <pre class="lines">
 
 
-53
-54
-55
-56</pre>
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_writable?'>writable?</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='id identifier rubyid_full_path'>full_path</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
@@ -730,29 +782,31 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="write-instance_method">
+  <h3 class="signature " id="write-instance_method">
   
     - (<tt>Object</tt>) <strong>write</strong>(item) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-44
-45
-46
-47
-48
-49
-50
-51</pre>
+56
+57
+58
+59
+60
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_contents'>contents</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -770,11 +824,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Wed Feb 29 02:17:01 2012 by 
+  Generated on Fri Mar 29 00:02:08 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

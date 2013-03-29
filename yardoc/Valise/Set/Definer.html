@@ -6,7 +6,7 @@
 <title>
   Class: Valise::Set::Definer
   
-    &mdash; valise-0.5 RDoc
+    &mdash; valise-0.9.0 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '../..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../../_index.html">Index (D)</a> &raquo; 
+    <a href="../../_index.html">Index (D)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Valise.html" title="Valise (module)">Valise</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Set.html" title="Valise::Set (class)">Set</a></span></span>
      &raquo; 
     <span class="title">Definer</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Valise::Set::Definer
   
   
@@ -91,7 +98,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/valise.rb</dd>
+    <dd class="r1 last">lib/valise/set/definer.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -125,26 +132,6 @@
   
   
   
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#from_here-instance_method" title="#from_here (instance method)">- (Object) <strong>from_here</strong>(rel_path) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
   
 
   
@@ -167,6 +154,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -182,6 +170,7 @@
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -202,11 +191,34 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#merge-instance_method" title="#merge (instance method)">- (Object) <strong>merge</strong>(path, merge_diff, options = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#ro-instance_method" title="#ro (instance method)">- (Object) <strong>ro</strong>(name, path = nil) </a>
     
 
     
   </span>
+  
   
   
   
@@ -234,6 +246,29 @@
   
   
   
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#serialize-instance_method" title="#serialize (instance method)">- (Object) <strong>serialize</strong>(path, serialization, options = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -249,6 +284,7 @@
 
     
   </span>
+  
   
   
   
@@ -273,19 +309,22 @@
   
   
   
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Unpath.html" title="Valise::Unpath (module)">Unpath</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="../Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Unpath.html#collapse-instance_method" title="Valise::Unpath#collapse (method)">#collapse</a></span>, <span class='object_link'><a href="../Unpath.html#file_from_backtrace-instance_method" title="Valise::Unpath#file_from_backtrace (method)">#file_from_backtrace</a></span>, <span class='object_link'><a href="../Unpath.html#from_here-instance_method" title="Valise::Unpath#from_here (method)">#from_here</a></span>, <span class='object_link'><a href="../Unpath.html#from_here-class_method" title="Valise::Unpath.from_here (method)">from_here</a></span>, <span class='object_link'><a href="../Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="../Unpath.html#string_to_segments-instance_method" title="Valise::Unpath#string_to_segments (method)">#string_to_segments</a></span>, <span class='object_link'><a href="../Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span>, <span class='object_link'><a href="../Unpath.html#up_to-instance_method" title="Valise::Unpath#up_to (method)">#up_to</a></span>, <span class='object_link'><a href="../Unpath.html#up_to-class_method" title="Valise::Unpath.up_to (method)">up_to</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Valise::Set::Definer (class)">Definer</a></span></tt>) <strong>initialize</strong>(set) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>A new instance of Definer</p>
@@ -302,12 +341,12 @@
       <pre class="lines">
 
 
-51
-52
-53</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_set'>set</span><span class='rparen'>)</span>
   <span class='ivar'>@target</span> <span class='op'>=</span> <span class='id identifier rubyid_set'>set</span>
@@ -322,28 +361,30 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="defaults-instance_method">
+  <h3 class="signature first" id="defaults-instance_method">
   
     - (<tt>Object</tt>) <strong>defaults</strong>(name = nil, &amp;block) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-82
-83
-84
-85</pre>
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defaults'>defaults</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_loc'>loc</span> <span class='op'>=</span> <span class='const'>DefinedDefaults</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -355,65 +396,33 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="from_here-instance_method">
-  
-    - (<tt>Object</tt>) <strong>from_here</strong>(rel_path) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-69
-70
-71
-72
-73
-74</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 69</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_from_here'>from_here</span><span class='lparen'>(</span><span class='id identifier rubyid_rel_path'>rel_path</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.*):\d+</span><span class='regexp_end'>/</span></span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='id identifier rubyid_caller'>caller</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_dir'>dir</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_unpath'>unpath</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_unpath'>unpath</span><span class='lparen'>(</span><span class='id identifier rubyid_rel_path'>rel_path</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="handle-instance_method">
+  <h3 class="signature " id="handle-instance_method">
   
     - (<tt>Object</tt>) <strong>handle</strong>(path, serialization, merge_diff = nil) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-76
-77
-78
-79
-80</pre>
+45
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle'>handle</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_serialization'>serialization</span><span class='comma'>,</span> <span class='id identifier rubyid_merge_diff'>merge_diff</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_handler'>add_handler</span><span class='lparen'>(</span><span class='id identifier rubyid_unpath'>unpath</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='comma'>,</span>
-                      <span class='const'>Valise</span><span class='op'>::</span><span class='const'>Serialization</span><span class='lbracket'>[</span><span class='id identifier rubyid_serialization'>serialization</span><span class='rbracket'>]</span><span class='comma'>,</span>
-                      <span class='const'>Valise</span><span class='op'>::</span><span class='const'>MergeDiff</span><span class='lbracket'>[</span><span class='id identifier rubyid_merge_diff'>merge_diff</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+                      <span class='id identifier rubyid_serialization'>serialization</span><span class='comma'>,</span>
+                      <span class='id identifier rubyid_merge_diff'>merge_diff</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -421,41 +430,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="ro-instance_method">
+  <h3 class="signature " id="merge-instance_method">
   
-    - (<tt>Object</tt>) <strong>ro</strong>(name, path = nil) 
-  
-
-  
-</p><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-59
-60
-61</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 59</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_ro'>ro</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_search_root'>add_search_root</span><span class='lparen'>(</span><span class='const'>ReadOnlySearchRoot</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="rw-instance_method">
-  
-    - (<tt>Object</tt>) <strong>rw</strong>(name, path = nil) 
+    - (<tt>Object</tt>) <strong>merge</strong>(path, merge_diff, options = nil) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -466,7 +449,67 @@
 57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_merge_diff'>merge_diff</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_merge_diff_handler'>add_merge_diff_handler</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_merge_diff'>merge_diff</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ro-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ro</strong>(name, path = nil) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ro'>ro</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_search_root'>add_search_root</span><span class='lparen'>(</span><span class='const'>ReadOnlySearchRoot</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rw-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rw</strong>(name, path = nil) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rw'>rw</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_search_root'>add_search_root</span><span class='lparen'>(</span><span class='const'>SearchRoot</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -477,26 +520,58 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="stemmed-instance_method">
+  <h3 class="signature " id="serialize-instance_method">
   
-    - (<tt>Object</tt>) <strong>stemmed</strong>(path, &amp;block) 
+    - (<tt>Object</tt>) <strong>serialize</strong>(path, serialization, options = nil) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-63
-64
-65
-66
-67</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_serialize'>serialize</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_serialization'>serialization</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_serialization_handler'>add_serialization_handler</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_serialization'>serialization</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stemmed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stemmed</strong>(path, &amp;block) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stemmed'>stemmed</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_definer'>definer</span> <span class='op'>=</span> <span class='const'>StemmedDefiner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='ivar'>@target</span><span class='rparen'>)</span>
@@ -511,11 +586,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Wed Feb 29 02:17:01 2012 by 
+  Generated on Fri Mar 29 00:02:08 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

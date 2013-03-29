@@ -6,7 +6,7 @@
 <title>
   Class: Valise::Set::StemmedDefiner
   
-    &mdash; valise-0.5 RDoc
+    &mdash; valise-0.9.0 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '../..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../../_index.html">Index (S)</a> &raquo; 
+    <a href="../../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Valise.html" title="Valise (module)">Valise</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Set.html" title="Valise::Set (class)">Set</a></span></span>
      &raquo; 
     <span class="title">StemmedDefiner</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Valise::Set::StemmedDefiner
   
   
@@ -91,7 +98,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/valise.rb</dd>
+    <dd class="r1 last">lib/valise/set/definer.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -119,6 +126,7 @@
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -150,6 +158,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -165,6 +174,7 @@
 
     
   </span>
+  
   
   
   
@@ -189,19 +199,22 @@
   
   
   
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Unpath.html" title="Valise::Unpath (module)">Unpath</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="../Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Unpath.html#collapse-instance_method" title="Valise::Unpath#collapse (method)">#collapse</a></span>, <span class='object_link'><a href="../Unpath.html#file_from_backtrace-instance_method" title="Valise::Unpath#file_from_backtrace (method)">#file_from_backtrace</a></span>, <span class='object_link'><a href="../Unpath.html#from_here-instance_method" title="Valise::Unpath#from_here (method)">#from_here</a></span>, <span class='object_link'><a href="../Unpath.html#from_here-class_method" title="Valise::Unpath.from_here (method)">from_here</a></span>, <span class='object_link'><a href="../Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="../Unpath.html#string_to_segments-instance_method" title="Valise::Unpath#string_to_segments (method)">#string_to_segments</a></span>, <span class='object_link'><a href="../Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span>, <span class='object_link'><a href="../Unpath.html#up_to-instance_method" title="Valise::Unpath#up_to (method)">#up_to</a></span>, <span class='object_link'><a href="../Unpath.html#up_to-class_method" title="Valise::Unpath.up_to (method)">up_to</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Valise::Set::StemmedDefiner (class)">StemmedDefiner</a></span></tt>) <strong>initialize</strong>(path, set) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>A new instance of StemmedDefiner</p>
@@ -218,13 +231,13 @@
       <pre class="lines">
 
 
-33
-34
-35
-36</pre>
+9
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_set'>set</span><span class='rparen'>)</span>
   <span class='ivar'>@segments</span> <span class='op'>=</span> <span class='id identifier rubyid_unpath'>unpath</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -240,28 +253,30 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="ro-instance_method">
+  <h3 class="signature first" id="ro-instance_method">
   
     - (<tt>Object</tt>) <strong>ro</strong>(name) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-43
-44
-45
-46</pre>
+19
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ro'>ro</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_search_root'>add_search_root</span><span class='lparen'>(</span>
@@ -273,25 +288,27 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="rw-instance_method">
+  <h3 class="signature " id="rw-instance_method">
   
     - (<tt>Object</tt>) <strong>rw</strong>(name) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-38
-39
-40
-41</pre>
+14
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/set/definer.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rw'>rw</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add_search_root'>add_search_root</span><span class='lparen'>(</span>
@@ -305,11 +322,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Wed Feb 29 02:17:01 2012 by 
+  Generated on Fri Mar 29 00:02:08 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Class: Valise::DefinedDefaults
   
-    &mdash; valise-0.5 RDoc
+    &mdash; valise-0.9.0 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (D)</a> &raquo; 
+    <a href="../_index.html">Index (D)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Valise.html" title="Valise (module)">Valise</a></span></span>
      &raquo; 
     <span class="title">DefinedDefaults</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Valise::DefinedDefaults
   
   
@@ -98,9 +105,9 @@
 
 <h2>Defined Under Namespace</h2>
 <p class="children">
-   
+  
     
-   
+  
     
       <strong class="classes">Classes:</strong> <span class='object_link'><a href="DefinedDefaults/DefinitionHelper.html" title="Valise::DefinedDefaults::DefinitionHelper (class)">DefinitionHelper</a></span>
     
@@ -129,6 +136,7 @@
 
     
   </span>
+  
   
   
   
@@ -165,6 +173,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -180,6 +189,7 @@
 
     
   </span>
+  
   
   
   
@@ -207,6 +217,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -222,6 +233,7 @@
 
     
   </span>
+  
   
   
   
@@ -249,6 +261,29 @@
   
   
   
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#full_path-instance_method" title="#full_path (instance method)">- (Object) <strong>full_path</strong>(segments) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -270,6 +305,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -285,6 +321,7 @@
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -316,6 +353,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -331,6 +369,7 @@
 
     
   </span>
+  
   
   
   
@@ -355,9 +394,11 @@
   
   
   
+  
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ReadOnlySearchRoot.html" title="Valise::ReadOnlySearchRoot (class)">ReadOnlySearchRoot</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ReadOnlySearchRoot.html#insert-instance_method" title="Valise::ReadOnlySearchRoot#insert (method)">#insert</a></span>, <span class='object_link'><a href="ReadOnlySearchRoot.html#writable%3F-instance_method" title="Valise::ReadOnlySearchRoot#writable? (method)">#writable?</a></span>, <span class='object_link'><a href="ReadOnlySearchRoot.html#write-instance_method" title="Valise::ReadOnlySearchRoot#write (method)">#write</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ReadOnlySearchRoot.html#writable%3F-instance_method" title="Valise::ReadOnlySearchRoot#writable? (method)">#writable?</a></span>, <span class='object_link'><a href="ReadOnlySearchRoot.html#write-instance_method" title="Valise::ReadOnlySearchRoot#write (method)">#write</a></span></p>
 
+  
   
   
   
@@ -366,8 +407,9 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="SearchRoot.html" title="Valise::SearchRoot (class)">SearchRoot</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="SearchRoot.html#full_path-instance_method" title="Valise::SearchRoot#full_path (method)">#full_path</a></span>, <span class='object_link'><a href="SearchRoot.html#insert-instance_method" title="Valise::SearchRoot#insert (method)">#insert</a></span>, <span class='object_link'><a href="SearchRoot.html#inspect-instance_method" title="Valise::SearchRoot#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="SearchRoot.html#writable%3F-instance_method" title="Valise::SearchRoot#writable? (method)">#writable?</a></span>, <span class='object_link'><a href="SearchRoot.html#write-instance_method" title="Valise::SearchRoot#write (method)">#write</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="SearchRoot.html#inspect-instance_method" title="Valise::SearchRoot#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="SearchRoot.html#to_s-instance_method" title="Valise::SearchRoot#to_s (method)">#to_s</a></span>, <span class='object_link'><a href="SearchRoot.html#writable%3F-instance_method" title="Valise::SearchRoot#writable? (method)">#writable?</a></span>, <span class='object_link'><a href="SearchRoot.html#write-instance_method" title="Valise::SearchRoot#write (method)">#write</a></span></p>
 
+  
   
   
   
@@ -377,18 +419,20 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Unpath.html" title="Valise::Unpath (module)">Unpath</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Unpath.html#collapse-instance_method" title="Valise::Unpath#collapse (method)">#collapse</a></span>, <span class='object_link'><a href="Unpath.html#file_from_backtrace-instance_method" title="Valise::Unpath#file_from_backtrace (method)">#file_from_backtrace</a></span>, <span class='object_link'><a href="Unpath.html#from_here-instance_method" title="Valise::Unpath#from_here (method)">#from_here</a></span>, <span class='object_link'><a href="Unpath.html#from_here-class_method" title="Valise::Unpath.from_here (method)">from_here</a></span>, <span class='object_link'><a href="Unpath.html#repath-instance_method" title="Valise::Unpath#repath (method)">#repath</a></span>, <span class='object_link'><a href="Unpath.html#string_to_segments-instance_method" title="Valise::Unpath#string_to_segments (method)">#string_to_segments</a></span>, <span class='object_link'><a href="Unpath.html#unpath-instance_method" title="Valise::Unpath#unpath (method)">#unpath</a></span>, <span class='object_link'><a href="Unpath.html#up_to-instance_method" title="Valise::Unpath#up_to (method)">#up_to</a></span>, <span class='object_link'><a href="Unpath.html#up_to-class_method" title="Valise::Unpath.up_to (method)">up_to</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Valise::DefinedDefaults (class)">DefinedDefaults</a></span></tt>) <strong>initialize</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 <p>A new instance of DefinedDefaults</p>
@@ -405,12 +449,12 @@
       <pre class="lines">
 
 
+90
 91
-92
-93</pre>
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@files</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -425,27 +469,29 @@
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="define-class_method">
+  <h3 class="signature first" id="define-class_method">
   
     + (<tt>Object</tt>) <strong>define</strong>(&amp;block) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-121
-122
-123</pre>
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -459,27 +505,29 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="add_dir-instance_method">
+  <h3 class="signature first" id="add_dir-instance_method">
   
     - (<tt>Object</tt>) <strong>add_dir</strong>(path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-136
-137
-138</pre>
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_dir'>add_dir</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='comment'>#add_item(path, ValiseWorks::Directory.new(path))
@@ -490,24 +538,26 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="add_file-instance_method">
+  <h3 class="signature " id="add_file-instance_method">
   
     - (<tt>Object</tt>) <strong>add_file</strong>(path, data = nil) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-140
-141
-142</pre>
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_file'>add_file</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
@@ -518,37 +568,39 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="add_item-instance_method">
+  <h3 class="signature " id="add_item-instance_method">
   
     - (<tt>Object</tt>) <strong>add_item</strong>(path, contents) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-125
-126
-127
 128
 129
 130
 131
 132
 133
-134</pre>
+134
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_item'>add_item</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_contents'>contents</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_path'>check_path</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span>
   <span class='kw'>until</span> <span class='id identifier rubyid_check_path'>check_path</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
     <span class='kw'>if</span> <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_check_path'>check_path</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MalformedTree</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Tried to add items below </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'> which is not a directory</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Errors</span><span class='op'>::</span><span class='const'>MalformedTree</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Tried to add items below </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'> which is not a directory</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_check_path'>check_path</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
   <span class='kw'>end</span>
@@ -560,28 +612,30 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="define-instance_method">
+  <h3 class="signature " id="define-instance_method">
   
     - (<tt>Object</tt>) <strong>define</strong>(&amp;block) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-113
-114
-115
 116
 117
 118
-119</pre>
+119
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -596,26 +650,28 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="each-instance_method">
+  <h3 class="signature " id="each-instance_method">
   
     - (<tt>Object</tt>) <strong>each</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-103
-104
-105
 106
-107</pre>
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span>
   <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='op'>|</span>
@@ -628,24 +684,56 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="get_from-instance_method">
+  <h3 class="signature " id="full_path-instance_method">
   
-    - (<tt>Object</tt>) <strong>get_from</strong>(item) 
+    - (<tt>Object</tt>) <strong>full_path</strong>(segments) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-109
-110
-111</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_full_path'>full_path</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;DEFAULTS&gt;:</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_repath'>repath</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_from-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_from</strong>(item) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_from'>get_from</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@files</span><span class='lbracket'>[</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_segments'>segments</span><span class='rbracket'>]</span>
@@ -656,13 +744,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="present?-instance_method">
+  <h3 class="signature " id="present?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>present?</strong>(segments) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -670,7 +760,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -690,12 +780,12 @@
       <pre class="lines">
 
 
-99
-100
-101</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_present?'>present?</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
   <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_segments'>segments</span><span class='rparen'>)</span>
@@ -706,13 +796,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="segments-instance_method">
+  <h3 class="signature " id="segments-instance_method">
   
     - (<tt>Object</tt>) <strong>segments</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -720,13 +812,13 @@
 </div>
 <div class="tags">
   
-<h3>Raises:</h3>
+<p class="tag_title">Raises:</p>
 <ul class="raise">
   
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="VirtualSearchPath.html" title="Valise::VirtualSearchPath (class)">VirtualSearchPath</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Errors/VirtualSearchPath.html" title="Valise::Errors::VirtualSearchPath (class)">Errors::VirtualSearchPath</a></span></tt>)</span>
       
       
       
@@ -740,15 +832,15 @@
       <pre class="lines">
 
 
+94
 95
-96
-97</pre>
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/valise/search-root.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_segments'>segments</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>VirtualSearchPath</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does not have a real path</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Errors</span><span class='op'>::</span><span class='const'>VirtualSearchPath</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does not have a real path</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -758,11 +850,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Wed Feb 29 02:17:02 2012 by 
+  Generated on Fri Mar 29 00:02:08 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  valise-0.5 RDoc
+  valise-0.9.0 RDoc
   
 </title>
 
@@ -13,9 +13,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -24,40 +26,42 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    
-    <span class="title"></span>
-  
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
-    <div id="content"><h1 class="noborder title">valise-0.5 RDoc</h1>
+
+    <div id="content"><h1 class="noborder title">valise-0.9.0 RDoc</h1>
 <div id="listing">
   <h1 class="alphaindex">Alphabetic Index</h1>
   
   <h2>File Listing</h2>
-  <ul id="files">
+  <ul id="files" class="index_inline_list">
   
   
     <li class="r1"><a href="index.html" title="README">README</a></li>
@@ -76,14 +80,29 @@
     <td valign='top' width="33%">
       
         
+        <ul id="alpha_A" class="alpha">
+          <li class="letter">A</li>
+          <ul>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Adapters.html" title="Valise::Adapters (module)">Adapters</a></span>
+                
+                  <small>(Valise)</small>
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        
         <ul id="alpha_C" class="alpha">
           <li class="letter">C</li>
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/CantPopulate.html" title="Valise::CantPopulate (class)">CantPopulate</a></span> 
+                <span class='object_link'><a href="Valise/Errors/CantPopulate.html" title="Valise::Errors::CantPopulate (class)">CantPopulate</a></span>
                 
-                  <small>(Valise)</small>
+                  <small>(Valise::Errors)</small>
                 
               </li>
             
@@ -96,35 +115,35 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/Debugging.html" title="Valise::Debugging (module)">Debugging</a></span> 
+                <span class='object_link'><a href="Valise/Debugging.html" title="Valise::Debugging (module)">Debugging</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/DefinedDefaults.html" title="Valise::DefinedDefaults (class)">DefinedDefaults</a></span> 
+                <span class='object_link'><a href="Valise/DefinedDefaults.html" title="Valise::DefinedDefaults (class)">DefinedDefaults</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/Set/Definer.html" title="Valise::Set::Definer (class)">Definer</a></span> 
+                <span class='object_link'><a href="Valise/Set/Definer.html" title="Valise::Set::Definer (class)">Definer</a></span>
                 
                   <small>(Valise::Set)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/DefinedDefaults/DefinitionHelper.html" title="Valise::DefinedDefaults::DefinitionHelper (class)">DefinitionHelper</a></span> 
+                <span class='object_link'><a href="Valise/DefinedDefaults/DefinitionHelper.html" title="Valise::DefinedDefaults::DefinitionHelper (class)">DefinitionHelper</a></span>
                 
                   <small>(Valise::DefinedDefaults)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/DirGlob.html" title="Valise::DirGlob (class)">DirGlob</a></span> 
+                <span class='object_link'><a href="Valise/DirGlob.html" title="Valise::DirGlob (class)">DirGlob</a></span>
                 
                   <small>(Valise)</small>
                 
@@ -139,16 +158,37 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/ItemEnum/Enumerator.html" title="Valise::ItemEnum::Enumerator (class)">Enumerator</a></span> 
+                <span class='object_link'><a href="Valise/ItemEnum/Enumerator.html" title="Valise::ItemEnum::Enumerator (class)">Enumerator</a></span>
                 
                   <small>(Valise::ItemEnum)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/Error.html" title="Valise::Error (class)">Error</a></span> 
+                <span class='object_link'><a href="Valise/Errors/Error.html" title="Valise::Errors::Error (class)">Error</a></span>
+                
+                  <small>(Valise::Errors)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Errors.html" title="Valise::Errors (module)">Errors</a></span>
                 
                   <small>(Valise)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Set/ExtensionsDecorator.html" title="Valise::Set::ExtensionsDecorator (class)">ExtensionsDecorator</a></span>
+                
+                  <small>(Valise::Set)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Stack/ExtensionsDecorator.html" title="Valise::Stack::ExtensionsDecorator (class)">ExtensionsDecorator</a></span>
+                
+                  <small>(Valise::Stack)</small>
                 
               </li>
             
@@ -161,7 +201,7 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/FileGlob.html" title="Valise::FileGlob (class)">FileGlob</a></span> 
+                <span class='object_link'><a href="Valise/FileGlob.html" title="Valise::FileGlob (class)">FileGlob</a></span>
                 
                   <small>(Valise)</small>
                 
@@ -176,9 +216,9 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/MergeDiff/HashMerge.html" title="Valise::MergeDiff::HashMerge (class)">HashMerge</a></span> 
+                <span class='object_link'><a href="Valise/Strategies/MergeDiff/HashMerge.html" title="Valise::Strategies::MergeDiff::HashMerge (class)">HashMerge</a></span>
                 
-                  <small>(Valise::MergeDiff)</small>
+                  <small>(Valise::Strategies::MergeDiff)</small>
                 
               </li>
             
@@ -191,36 +231,14 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/Item.html" title="Valise::Item (class)">Item</a></span> 
+                <span class='object_link'><a href="Valise/Item.html" title="Valise::Item (class)">Item</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/ItemEnum.html" title="Valise::ItemEnum (module)">ItemEnum</a></span> 
-                
-                  <small>(Valise)</small>
-                
-              </li>
-            
-          </ul>
-        </ul>
-      
-        
-        <ul id="alpha_M" class="alpha">
-          <li class="letter">M</li>
-          <ul>
-            
-              <li>
-                <span class='object_link'><a href="Valise/MalformedTree.html" title="Valise::MalformedTree (class)">MalformedTree</a></span> 
-                
-                  <small>(Valise)</small>
-                
-              </li>
-            
-              <li>
-                <span class='object_link'><a href="Valise/MergeDiff.html" title="Valise::MergeDiff (class)">MergeDiff</a></span> 
+                <span class='object_link'><a href="Valise/ItemEnum.html" title="Valise::ItemEnum (module)">ItemEnum</a></span>
                 
                   <small>(Valise)</small>
                 
@@ -233,35 +251,72 @@
           </td><td valign='top' width="33%">
           
         
+        <ul id="alpha_M" class="alpha">
+          <li class="letter">M</li>
+          <ul>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Errors/MalformedTree.html" title="Valise::Errors::MalformedTree (class)">MalformedTree</a></span>
+                
+                  <small>(Valise::Errors)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Strategies/MergeDiff.html" title="Valise::Strategies::MergeDiff (class)">MergeDiff</a></span>
+                
+                  <small>(Valise::Strategies)</small>
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        
+        <ul id="alpha_N" class="alpha">
+          <li class="letter">N</li>
+          <ul>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Errors/NotFound.html" title="Valise::Errors::NotFound (class)">NotFound</a></span>
+                
+                  <small>(Valise::Errors)</small>
+                
+              </li>
+            
+          </ul>
+        </ul>
+      
+        
         <ul id="alpha_P" class="alpha">
           <li class="letter">P</li>
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/PathMatcher.html" title="Valise::PathMatcher (class)">PathMatcher</a></span> 
+                <span class='object_link'><a href="Valise/PathMatcher.html" title="Valise::PathMatcher (class)">PathMatcher</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/PathNotFound.html" title="Valise::PathNotFound (class)">PathNotFound</a></span> 
+                <span class='object_link'><a href="Valise/Errors/PathNotFound.html" title="Valise::Errors::PathNotFound (class)">PathNotFound</a></span>
                 
-                  <small>(Valise)</small>
-                
-              </li>
-            
-              <li>
-                <span class='object_link'><a href="Valise/PathNotInRoot.html" title="Valise::PathNotInRoot (class)">PathNotInRoot</a></span> 
-                
-                  <small>(Valise)</small>
+                  <small>(Valise::Errors)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/PathOutsideOfRoot.html" title="Valise::PathOutsideOfRoot (class)">PathOutsideOfRoot</a></span> 
+                <span class='object_link'><a href="Valise/Errors/PathNotInRoot.html" title="Valise::Errors::PathNotInRoot (class)">PathNotInRoot</a></span>
                 
-                  <small>(Valise)</small>
+                  <small>(Valise::Errors)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Errors/PathOutsideOfRoot.html" title="Valise::Errors::PathOutsideOfRoot (class)">PathOutsideOfRoot</a></span>
+                
+                  <small>(Valise::Errors)</small>
                 
               </li>
             
@@ -274,30 +329,23 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/Serialization/Raw.html" title="Valise::Serialization::Raw (class)">Raw</a></span> 
+                <span class='object_link'><a href="Valise/Errors/ReadOnly.html" title="Valise::Errors::ReadOnly (class)">ReadOnly</a></span>
                 
-                  <small>(Valise::Serialization)</small>
+                  <small>(Valise::Errors)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/ReadOnly.html" title="Valise::ReadOnly (class)">ReadOnly</a></span> 
+                <span class='object_link'><a href="Valise/ReadOnlySearchRoot.html" title="Valise::ReadOnlySearchRoot (class)">ReadOnlySearchRoot</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/ReadOnlySearchRoot.html" title="Valise::ReadOnlySearchRoot (class)">ReadOnlySearchRoot</a></span> 
+                <span class='object_link'><a href="Valise/Errors/RootNotInSet.html" title="Valise::Errors::RootNotInSet (class)">RootNotInSet</a></span>
                 
-                  <small>(Valise)</small>
-                
-              </li>
-            
-              <li>
-                <span class='object_link'><a href="Valise/RootNotInSet.html" title="Valise::RootNotInSet (class)">RootNotInSet</a></span> 
-                
-                  <small>(Valise)</small>
+                  <small>(Valise::Errors)</small>
                 
               </li>
             
@@ -310,49 +358,63 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/SearchRoot.html" title="Valise::SearchRoot (class)">SearchRoot</a></span> 
+                <span class='object_link'><a href="Valise/SearchRoot.html" title="Valise::SearchRoot (class)">SearchRoot</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/Serialization.html" title="Valise::Serialization (class)">Serialization</a></span> 
+                <span class='object_link'><a href="Valise/Strategies/Serialization.html" title="Valise::Strategies::Serialization (class)">Serialization</a></span>
+                
+                  <small>(Valise::Strategies)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Strategies/Set.html" title="Valise::Strategies::Set (class)">Set</a></span>
+                
+                  <small>(Valise::Strategies)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Set.html" title="Valise::Set (class)">Set</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/Set.html" title="Valise::Set (class)">Set</a></span> 
+                <span class='object_link'><a href="Valise/Stack.html" title="Valise::Stack (class)">Stack</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/Stack.html" title="Valise::Stack (class)">Stack</a></span> 
+                <span class='object_link'><a href="Valise/StemDecorator.html" title="Valise::StemDecorator (class)">StemDecorator</a></span>
                 
                   <small>(Valise)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/StemDecorator.html" title="Valise::StemDecorator (class)">StemDecorator</a></span> 
-                
-                  <small>(Valise)</small>
-                
-              </li>
-            
-              <li>
-                <span class='object_link'><a href="Valise/Set/StemmedDefiner.html" title="Valise::Set::StemmedDefiner (class)">StemmedDefiner</a></span> 
+                <span class='object_link'><a href="Valise/Set/StemmedDefiner.html" title="Valise::Set::StemmedDefiner (class)">StemmedDefiner</a></span>
                 
                   <small>(Valise::Set)</small>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/StringTools.html" title="Valise::StringTools (module)">StringTools</a></span> 
+                <span class='object_link'><a href="Valise/Strategies.html" title="Valise::Strategies (module)">Strategies</a></span>
+                
+                  <small>(Valise)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/StringTools.html" title="Valise::StringTools (module)">StringTools</a></span>
                 
                   <small>(Valise)</small>
                 
@@ -367,9 +429,16 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/MergeDiff/TopMost.html" title="Valise::MergeDiff::TopMost (class)">TopMost</a></span> 
+                <span class='object_link'><a href="Valise/Strategies/Serialization/Tilt.html" title="Valise::Strategies::Serialization::Tilt (class)">Tilt</a></span>
                 
-                  <small>(Valise::MergeDiff)</small>
+                  <small>(Valise::Strategies::Serialization)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Strategies/MergeDiff/TopMost.html" title="Valise::Strategies::MergeDiff::TopMost (class)">TopMost</a></span>
+                
+                  <small>(Valise::Strategies::MergeDiff)</small>
                 
               </li>
             
@@ -382,9 +451,23 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/Unpath.html" title="Valise::Unpath (module)">Unpath</a></span> 
+                <span class='object_link'><a href="Valise/Errors/UnderIndented.html" title="Valise::Errors::UnderIndented (class)">UnderIndented</a></span>
+                
+                  <small>(Valise::Errors)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Unpath.html" title="Valise::Unpath (module)">Unpath</a></span>
                 
                   <small>(Valise)</small>
+                
+              </li>
+            
+              <li>
+                <span class='object_link'><a href="Valise/Errors/UnregisteredStrategy.html" title="Valise::Errors::UnregisteredStrategy (class)">UnregisteredStrategy</a></span>
+                
+                  <small>(Valise::Errors)</small>
                 
               </li>
             
@@ -397,14 +480,14 @@
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise.html" title="Valise (module)">Valise</a></span> 
+                <span class='object_link'><a href="Valise.html" title="Valise (module)">Valise</a></span>
                 
               </li>
             
               <li>
-                <span class='object_link'><a href="Valise/VirtualSearchPath.html" title="Valise::VirtualSearchPath (class)">VirtualSearchPath</a></span> 
+                <span class='object_link'><a href="Valise/Errors/VirtualSearchPath.html" title="Valise::Errors::VirtualSearchPath (class)">VirtualSearchPath</a></span>
                 
-                  <small>(Valise)</small>
+                  <small>(Valise::Errors)</small>
                 
               </li>
             
@@ -412,29 +495,17 @@
         </ul>
       
         
-        <ul id="alpha_W" class="alpha">
-          <li class="letter">W</li>
-          <ul>
-            
-              <li>
-                <span class='object_link'><a href="Valise/WouldClobber.html" title="Valise::WouldClobber (class)">WouldClobber</a></span> 
-                
-                  <small>(Valise)</small>
-                
-              </li>
-            
-          </ul>
-        </ul>
-      
+          </td><td valign='top' width="33%">
+          
         
         <ul id="alpha_Y" class="alpha">
           <li class="letter">Y</li>
           <ul>
             
               <li>
-                <span class='object_link'><a href="Valise/Serialization/YAML.html" title="Valise::Serialization::YAML (class)">YAML</a></span> 
+                <span class='object_link'><a href="Valise/Strategies/Serialization/YAML.html" title="Valise::Strategies::Serialization::YAML (class)">YAML</a></span>
                 
-                  <small>(Valise::Serialization)</small>
+                  <small>(Valise::Strategies::Serialization)</small>
                 
               </li>
             
@@ -448,11 +519,11 @@
 </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Wed Feb 29 02:17:00 2012 by 
+  Generated on Fri Mar 29 00:02:05 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

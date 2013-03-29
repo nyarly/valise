@@ -6,7 +6,7 @@
 <title>
   Module: Valise
   
-    &mdash; valise-0.5 RDoc
+    &mdash; valise-0.9.0 RDoc
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (V)</a> &raquo; 
+    <a href="_index.html">Index (V)</a> &raquo;
     
     
     <span class="title">Valise</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Module: Valise
   
   
@@ -73,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/valise/search-root.rb<span class="defines">,<br />
-  lib/valise.rb,<br /> lib/valise/item.rb,<br /> lib/valise/stack.rb,<br /> lib/valise/utils.rb,<br /> lib/valise/errors.rb,<br /> lib/valise/path-matcher.rb,<br /> lib/valise/stem-decorator.rb</span>
+  lib/valise.rb,<br /> lib/valise/item-enum.rb,<br /> lib/valise/debugging.rb,<br /> lib/valise/utils.rb,<br /> lib/valise/errors.rb,<br /> lib/valise/adapters.rb,<br /> lib/valise/strategies/set.rb,<br /> lib/valise/strategies/merge-diff.rb,<br /> lib/valise/strategies/serialization.rb,<br /> lib/valise/adapters/tilt.rb,<br /> lib/valise/path-matcher.rb,<br /> lib/valise/set.rb,<br /> lib/valise/set/definer.rb,<br /> lib/valise/set/extensions-decorator.rb,<br /> lib/valise/stack.rb,<br /> lib/valise/stack/extensions-decorator.rb,<br /> lib/valise/stem-decorator.rb,<br /> lib/valise/item.rb</span>
 </dd>
   
 </dl>
@@ -92,13 +99,13 @@
 
 </div><h2>Defined Under Namespace</h2>
 <p class="children">
-   
+  
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Valise/Debugging.html" title="Valise::Debugging (module)">Debugging</a></span>, <span class='object_link'><a href="Valise/ItemEnum.html" title="Valise::ItemEnum (module)">ItemEnum</a></span>, <span class='object_link'><a href="Valise/StringTools.html" title="Valise::StringTools (module)">StringTools</a></span>, <span class='object_link'><a href="Valise/Unpath.html" title="Valise::Unpath (module)">Unpath</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Valise/Adapters.html" title="Valise::Adapters (module)">Adapters</a></span>, <span class='object_link'><a href="Valise/Debugging.html" title="Valise::Debugging (module)">Debugging</a></span>, <span class='object_link'><a href="Valise/Errors.html" title="Valise::Errors (module)">Errors</a></span>, <span class='object_link'><a href="Valise/ItemEnum.html" title="Valise::ItemEnum (module)">ItemEnum</a></span>, <span class='object_link'><a href="Valise/Strategies.html" title="Valise::Strategies (module)">Strategies</a></span>, <span class='object_link'><a href="Valise/StringTools.html" title="Valise::StringTools (module)">StringTools</a></span>, <span class='object_link'><a href="Valise/Unpath.html" title="Valise::Unpath (module)">Unpath</a></span>
     
-   
+  
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Valise/CantPopulate.html" title="Valise::CantPopulate (class)">CantPopulate</a></span>, <span class='object_link'><a href="Valise/DefinedDefaults.html" title="Valise::DefinedDefaults (class)">DefinedDefaults</a></span>, <span class='object_link'><a href="Valise/DirGlob.html" title="Valise::DirGlob (class)">DirGlob</a></span>, <span class='object_link'><a href="Valise/Error.html" title="Valise::Error (class)">Error</a></span>, <span class='object_link'><a href="Valise/FileGlob.html" title="Valise::FileGlob (class)">FileGlob</a></span>, <span class='object_link'><a href="Valise/Item.html" title="Valise::Item (class)">Item</a></span>, <span class='object_link'><a href="Valise/MalformedTree.html" title="Valise::MalformedTree (class)">MalformedTree</a></span>, <span class='object_link'><a href="Valise/MergeDiff.html" title="Valise::MergeDiff (class)">MergeDiff</a></span>, <span class='object_link'><a href="Valise/PathMatcher.html" title="Valise::PathMatcher (class)">PathMatcher</a></span>, <span class='object_link'><a href="Valise/PathNotFound.html" title="Valise::PathNotFound (class)">PathNotFound</a></span>, <span class='object_link'><a href="Valise/PathNotInRoot.html" title="Valise::PathNotInRoot (class)">PathNotInRoot</a></span>, <span class='object_link'><a href="Valise/PathOutsideOfRoot.html" title="Valise::PathOutsideOfRoot (class)">PathOutsideOfRoot</a></span>, <span class='object_link'><a href="Valise/ReadOnly.html" title="Valise::ReadOnly (class)">ReadOnly</a></span>, <span class='object_link'><a href="Valise/ReadOnlySearchRoot.html" title="Valise::ReadOnlySearchRoot (class)">ReadOnlySearchRoot</a></span>, <span class='object_link'><a href="Valise/RootNotInSet.html" title="Valise::RootNotInSet (class)">RootNotInSet</a></span>, <span class='object_link'><a href="Valise/SearchRoot.html" title="Valise::SearchRoot (class)">SearchRoot</a></span>, <span class='object_link'><a href="Valise/Serialization.html" title="Valise::Serialization (class)">Serialization</a></span>, <span class='object_link'><a href="Valise/Set.html" title="Valise::Set (class)">Set</a></span>, <span class='object_link'><a href="Valise/Stack.html" title="Valise::Stack (class)">Stack</a></span>, <span class='object_link'><a href="Valise/StemDecorator.html" title="Valise::StemDecorator (class)">StemDecorator</a></span>, <span class='object_link'><a href="Valise/VirtualSearchPath.html" title="Valise::VirtualSearchPath (class)">VirtualSearchPath</a></span>, <span class='object_link'><a href="Valise/WouldClobber.html" title="Valise::WouldClobber (class)">WouldClobber</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Valise/DefinedDefaults.html" title="Valise::DefinedDefaults (class)">DefinedDefaults</a></span>, <span class='object_link'><a href="Valise/DirGlob.html" title="Valise::DirGlob (class)">DirGlob</a></span>, <span class='object_link'><a href="Valise/FileGlob.html" title="Valise::FileGlob (class)">FileGlob</a></span>, <span class='object_link'><a href="Valise/Item.html" title="Valise::Item (class)">Item</a></span>, <span class='object_link'><a href="Valise/PathMatcher.html" title="Valise::PathMatcher (class)">PathMatcher</a></span>, <span class='object_link'><a href="Valise/ReadOnlySearchRoot.html" title="Valise::ReadOnlySearchRoot (class)">ReadOnlySearchRoot</a></span>, <span class='object_link'><a href="Valise/SearchRoot.html" title="Valise::SearchRoot (class)">SearchRoot</a></span>, <span class='object_link'><a href="Valise/Set.html" title="Valise::Set (class)">Set</a></span>, <span class='object_link'><a href="Valise/Stack.html" title="Valise::Stack (class)">Stack</a></span>, <span class='object_link'><a href="Valise/StemDecorator.html" title="Valise::StemDecorator (class)">StemDecorator</a></span>
     
   
 </p>
@@ -109,14 +116,143 @@
 
 
 
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-class_method" title="define (class method)">+ (Object) <strong>define</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_only-class_method" title="read_only (class method)">+ (Object) <strong>read_only</strong>(*dirs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="define-class_method">
+  
+    + (<tt>Object</tt>) <strong>define</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='const'>Valise</span><span class='op'>::</span><span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="read_only-class_method">
+  
+    + (<tt>Object</tt>) <strong>read_only</strong>(*dirs) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/valise.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_read_only'>read_only</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_dirs'>dirs</span><span class='rparen'>)</span>
+  <span class='const'>Valise</span><span class='op'>::</span><span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_dirs'>dirs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_dir'>dir</span><span class='op'>|</span>
+      <span class='id identifier rubyid_ro'>ro</span> <span class='id identifier rubyid_dir'>dir</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
     <div id="footer">
-  Generated on Wed Feb 29 02:17:01 2012 by 
+  Generated on Fri Mar 29 00:02:06 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>
