@@ -134,31 +134,3 @@ describe Valise do
     end
   end
 end
-
-describe Valise, " - the unpath method: " do
-  before do
-    @search_root = Valise::SearchRoot.new("")
-  end
-
-  it 'state => ["state"]' do
-    @search_root.unpath("state").should == %w{state}
-  end
-
-  it '["step", "step/step"] => ["step", "step", "step"]' do
-    @search_root.unpath(["step", "step/step"]).should == %w{step step step}
-  end
-
-  it '/etc/configs => ["", "etc", "configs"]' do
-    @search_root.unpath("/etc/configs").should == [""] + %w{etc configs}
-  end
-
-  it '["", "etc", "configs"] => ["", "etc", "configs"]' do
-    @search_root.unpath(["", "etc", "configs"]).should == [""] + %w{etc configs}
-  end
-
-  it 'a File => #path' do
-    @file = File.new(__FILE__)
-    @path = __FILE__.split("/")
-    @search_root.unpath(@file)
-  end
-end

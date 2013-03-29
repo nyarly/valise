@@ -24,17 +24,28 @@ Gem::Specification.new do |spec|
     doc/README
     doc/Specification
     doc/Specifications
+
     lib/valise.rb
+    lib/valise/item-enum.rb
+    lib/valise/merge-diff.rb
+    lib/valise/serialization.rb
     lib/valise/debugging.rb
-    lib/valise/set/definer.rb
-    lib/valise/set.rb
+    lib/valise/utils.rb
     lib/valise/errors.rb
-    lib/valise/item.rb
+
     lib/valise/path-matcher.rb
     lib/valise/search-root.rb
+
+    lib/valise/set.rb
+    lib/valise/set/definer.rb
+    lib/valise/set/extensions-decorator.rb
+
     lib/valise/stack.rb
+    lib/valise/stack/extensions-decorator.rb
     lib/valise/stem-decorator.rb
-    lib/valise/utils.rb
+
+    lib/valise/item.rb
+
     spec/addable.rb
     spec/dump-load.rb
     spec/error-handling.rb

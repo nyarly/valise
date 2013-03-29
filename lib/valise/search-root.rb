@@ -95,6 +95,10 @@ module Valise
       raise Errors::VirtualSearchPath, "does not have a real path"
     end
 
+    def full_path(segments)
+      "<DEFAULTS>:" + repath(segments)
+    end
+
     def present?(segments)
       @files.has_key?(segments)
     end

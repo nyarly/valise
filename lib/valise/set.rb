@@ -103,8 +103,20 @@ module Valise
     end
 
     def add_handler(segments, serialization_class, merge_diff_class)
-      merge_diff[segments] = merge_diff_class unless merge_diff_class.nil?
-      serialization[segments] = serialization_class unless serialization_class.nil?
+      add_serialization_handler(segments, serialization_class)
+      add_merge_handler(segments, merge_diff_class)
+    end
+
+    def add_serialization_handler(pattern, serializer, options = nil)
+      return if serializer.nil?
+      Strategies::Serialization.check!(serializer)
+      serialization[pattern] = [serializer, options]
+    end
+
+    def add_merge_handler(pattern, merger, options = nil)
+      return if merger.nil?
+      Strategies::MergeDiff.check!(merger)
+      merge_diff[pattern] = [merger, options]
     end
 
     def +(other)
@@ -120,12 +132,15 @@ module Valise
       :merge_diff=, :merge_diff,
       :serialization=, :serialization
 
-    def merge_diff_for(path)
-      merge_diff[unpath(path)]
+    def merge_diff_for(stack)
+      type, options = *(merge_diff[unpath(stack.segments)] || [])
+      options = (options || {}).merge(:stack => stack)
+      Strategies::MergeDiff.instance(type, options)
     end
 
-    def serialization_for(path)
-      serialization[unpath(path)]
+    def serialization_for(stack)
+      type, options = *serialization[unpath(stack.segments)]
+      Strategies::Serialization.instance(type, options)
     end
 
     def merge_handlers(new_merge_diff, new_serialization)
@@ -138,7 +153,7 @@ module Valise
     end
 
     def get(path)
-      return Stack.new(path, self, merge_diff_for(path), serialization_for(path))
+      Stack.new(path, self)
     end
 
     def find(path)

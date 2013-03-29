@@ -42,17 +42,18 @@ module Valise
         return definer
       end
 
-      def from_here(rel_path)
-        m = /(.*):\d+/.match(caller[0])
-        dir = ::File::dirname(::File::expand_path(m[1]))
-
-        collapse(unpath(dir) + unpath(rel_path))
-      end
-
       def handle(path, serialization, merge_diff = nil)
         @target.add_handler(unpath(path),
-                            Valise::Serialization[serialization],
-                            Valise::MergeDiff[merge_diff])
+                            serialization,
+                            merge_diff)
+      end
+
+      def serialize(path, serialization, options = nil)
+        @target.add_serialization_handler(path, serialization, options)
+      end
+
+      def merge(path, merge_diff, options = nil)
+        @target.add_merge_diff_handler(path, merge_diff, options)
       end
 
       def defaults(name=nil, &block)

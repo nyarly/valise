@@ -17,10 +17,38 @@ module Valise
     module_function :align
   end
 
+  #XXX This has been overtaken by std-lib Pathname and should be mostly
+  #refactored out
   module Unpath
     def string_to_segments(string)
       return string if string.empty?
       string.split(::File::Separator)
+    end
+
+    def file_from_backtrace(line)
+      /(.*):\d+/.match(line)[1]
+    end
+
+    def from_here(rel_path, base_path = nil)
+      base_path ||= file_from_backtrace(caller[0])
+      collapse(unpath(base_path) + unpath(rel_path))
+    end
+
+    def up_to(up_to = nil, base_path = nil)
+      base_path ||= file_from_backtrace(caller[0])
+      up_to ||= "lib"
+
+      abs_path = File::expand_path(base_path)
+      base_path = unpath(base_path)
+      until base_path.empty? or base_path.last == up_to
+        base_path.pop
+      end
+
+      if base_path.empty?
+        raise "Relative root #{up_to.inspect} not found in #{abs_path.inspect}"
+      end
+
+      return base_path
     end
 
     def unpath(parts)
@@ -57,7 +85,11 @@ module Valise
       collapsed = []
       segments.each do |segment|
         case segment
-        when '.', ""
+        when '.'
+        when ""
+          if collapsed.empty?
+            collapsed.push segment
+          end
         when '..'
           if collapsed.empty?
             collapsed.push segment
@@ -79,5 +111,8 @@ module Valise
         return segments
       end
     end
+
+    module_function :from_here, :up_to
+    public :from_here, :up_to
   end
 end

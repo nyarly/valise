@@ -1,6 +1,6 @@
 require 'yaml'
 require 'valise/utils'
-require 'valise/serialization'
+require 'valise/strategies/serialization'
 
 module Valise
   class Item
@@ -9,7 +9,7 @@ module Valise
     def initialize(stack, root, dump_load)
       @stack = stack
       @root = root
-      @dump_load = dump_load || Serialization::Raw
+      @dump_load = dump_load
       @contents = nil
     end
 
@@ -48,6 +48,10 @@ module Valise
       File::open(full_path)
     end
 
+    def raw_contents
+      @root.get_from(self)
+    end
+
     def open(&block)
       File::open(full_path, "r", &block)
     end
@@ -67,11 +71,11 @@ module Valise
     end
 
     def dump_contents
-      @dump_load.dump(load_contents) #@contents?
+      @dump_load.dump(self) #@contents?
     end
 
     def load_contents
-      @contents ||= @dump_load.load(@root.get_from(self))
+      @contents ||= @dump_load.load(self)
     end
   end
 end

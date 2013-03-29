@@ -11,6 +11,10 @@ module Valise
       attr_reader :set
       protected :set
 
+      def inspect
+        super + "x#{extensions.inspect}"
+      end
+
       def search_roots
         set.search_roots
       end

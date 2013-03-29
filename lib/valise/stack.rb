@@ -1,6 +1,6 @@
 require 'valise/utils'
 require 'valise/item-enum'
-require 'valise/merge-diff'
+require 'valise/strategies/merge-diff'
 require 'valise/stack/extensions-decorator'
 
 module Valise
@@ -9,14 +9,12 @@ module Valise
     include ItemEnum
 
     def inspect
-      "<default>:#{@segments.join "/"} #{@valise.inspect}"
+      "<default>:#{(@segments||%w{?}).join "/"} #{@valise.inspect}"
     end
 
-    def initialize(path, set, merge_class, dump_load)
+    def initialize(path, set)
       @segments = collapse(unpath(path))
       @valise = set
-      @merge_diff = (merge_class || MergeDiff::TopMost).new(self)
-      @dump_load = dump_load
     end
 
     attr_reader :segments, :valise
@@ -25,12 +23,20 @@ module Valise
       repath(@segments)
     end
 
+    def merge_diff
+      @valise.merge_diff_for(self)
+    end
+
+    def dump_load
+      @valise.serialization_for(self)
+    end
+
     def merged(item)
-      @merge_diff.merge(item)
+      merge_diff.merge(item)
     end
 
     def diffed(item, value)
-      @merge_diff.diff(item, value)
+      merge_diff.diff(item, value)
     end
 
     def not_above(item)
@@ -66,7 +72,7 @@ module Valise
     end
 
     def item_for(root)
-      Item.new(self, root, @dump_load)
+      Item.new(self, root, dump_load)
     end
 
     def each

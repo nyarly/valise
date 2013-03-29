@@ -67,4 +67,5 @@ PLATFORMS
 DEPENDENCIES
   corundum
   fuubar
+  tilt
   valise!

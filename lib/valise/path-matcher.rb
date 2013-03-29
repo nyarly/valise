@@ -91,7 +91,7 @@ module Valise
           case index
           when "**"; DirGlob.new.tap{|m| @children << m}
           when /.*[*].*/; FileGlob.new(index).tap{|m| @children << m}
-          else; PathMatcher.new(index).tap{|m| @children << m}
+          else; PathMatcher.new(index).tap{|m| @children.unshift m}
           end
         target.store(segments, result)
       end
@@ -109,9 +109,9 @@ module Valise
 
     def access(segments)
       if segments.empty?
-        return nil
+        return @value
       else
-        super || access(segments.drop(1))
+        retreive(segments) || access(segments.drop(1))
       end
     end
   end

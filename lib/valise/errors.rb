@@ -12,6 +12,12 @@ module Valise
     class RootNotInSet < Error; end
     class UnderIndented < Error; end
 
+    class UnregisteredStrategy < Error
+      def initialize(klass, type)
+        super("No #{klass} strategy is registered for #{type.inspect}")
+      end
+    end
+
     class CantPopulate < Error
       def initialize(item, cause)
         @item = item

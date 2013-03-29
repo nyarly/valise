@@ -15,22 +15,30 @@ describe Valise, "glob handling" do
   end
 
   it "should not recognize unmatched path" do
-    valise.serialization_for("not_matched/full").should_not == Valise::Serialization::YAML
+    valise.get("not_matched/full").dump_load.should_not be_a(Valise::Strategies::Serialization::YAML)
   end
 
   it "should not recognize path like a path glob" do
-    valise.serialization_for("path/full.notpath").should_not == Valise::Serialization::YAML
+    valise.get("path/full.notpath").should_not be_a(Valise::Strategies::Serialization::YAML)
   end
 
   it "should recognize based on a full path" do
-    valise.serialization_for("test/full").should == Valise::Serialization::YAML
+    valise.get("test/full").dump_load.should be_a(Valise::Strategies::Serialization::YAML)
   end
 
   it "should recognize base on a file glob" do
-    valise.serialization_for("test/by.file").should == Valise::Serialization::YAML
+    valise.get("test/by.file").dump_load.should be_a(Valise::Strategies::Serialization::YAML)
+  end
+
+  it "should recognize simple files based on glob" do
+    valise.get("by.file").dump_load.should be_a(Valise::Strategies::Serialization::YAML)
+  end
+
+  it "should recognize deep files based on glob" do
+    valise.get("a/b/c/d/e/by.file").dump_load.should be_a(Valise::Strategies::Serialization::YAML)
   end
 
   it "should recognize based on a path glob" do
-    valise.serialization_for("path/by.path").should == Valise::Serialization::YAML
+    valise.get("path/by.path").dump_load.should be_a(Valise::Strategies::Serialization::YAML)
   end
 end

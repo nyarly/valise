@@ -10,32 +10,38 @@ describe Valise do
     sandbox.new :directory => ".conductor"
     sandbox.new :directory => "spec"
     sandbox.new :file => "home/.conductor/existed", :with_contents => "TEST"
-    one = Valise::Set.define do
+  end
+
+  let :one do
+    Valise::Set.define do
       handle "test", :yaml
       rw ".conductor"
     end
+  end
 
-    two = Valise::Set.define do
+  let :two do
+    Valise::Set.define do
       handle "test", nil, :hash_merge
       defaults do
       end
     end
-
-    @sum = one + two
   end
 
+  let :sum do
+    one + two
+  end
 
   it "should be addable" do
-    @sum.should be_an_instance_of(Valise::Set)
+    sum.should be_an_instance_of(Valise::Set)
   end
 
   it "should add in order" do
-    @sum[0].should be_an_instance_of(Valise::SearchRoot)
-    @sum[1].should be_an_instance_of(Valise::DefinedDefaults)
+    sum[0].should be_an_instance_of(Valise::SearchRoot)
+    sum[1].should be_an_instance_of(Valise::DefinedDefaults)
   end
 
   it "should combine file handlers" do
-    @sum.merge_diff_for("test").should == Valise::MergeDiff::HashMerge
-    @sum.serialization_for("test").should == Valise::Serialization::YAML
+    sum.get("test").merge_diff.should be_a(Valise::Strategies::MergeDiff::HashMerge)
+    sum.get("test").dump_load.should be_a(Valise::Strategies::Serialization::YAML)
   end
 end

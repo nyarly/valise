@@ -11,6 +11,10 @@ module Valise
 
       attr_accessor :extensions
 
+      def inspect
+        @stack.inspect + "x#{extensions.inspect}"
+      end
+
       def valise
         @stack.valise
       end

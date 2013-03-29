@@ -1,5 +1,6 @@
 require 'valise/set'
 require 'valise/errors'
+require 'valise/adapters'
 
 module Valise
   def self.define(&block)
