@@ -31,7 +31,7 @@ module Valise
 
     def from_here(rel_path, base_path = nil)
       base_path ||= file_from_backtrace(caller[0])
-      collapse(unpath(base_path) + unpath(rel_path))
+      repath(collapse(unpath(base_path) + unpath(rel_path)))
     end
 
     def up_to(up_to = nil, base_path = nil)
@@ -48,7 +48,7 @@ module Valise
         raise "Relative root #{up_to.inspect} not found in #{abs_path.inspect}"
       end
 
-      return base_path
+      return repath(base_path)
     end
 
     def unpath(parts)
@@ -112,7 +112,7 @@ module Valise
       end
     end
 
-    module_function :from_here, :up_to
-    public :from_here, :up_to
+    module_function :from_here, :up_to, :unpath, :repath, :string_to_segments, :file_from_backtrace
+    public :from_here, :up_to, :file_from_backtrace
   end
 end

@@ -14,3 +14,4 @@ rubydoc/
 ui.log
 .yardoc/
 gh-pages/
+.sass-cache/

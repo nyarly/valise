@@ -3,6 +3,18 @@ describe Valise::Unpath do
   let :module_host do
     Object.new.tap do |obj|
       obj.extend Valise::Unpath
+
+      obj.instance_eval do
+        class << self
+          public :unpath
+        end
+      end
+    end
+  end
+
+  describe "#up_to" do
+    it "should walk up paths" do
+      Valise::Unpath.up_to("spec").should =~ /.*spec$/
     end
   end
 
@@ -32,7 +44,7 @@ describe Valise::Unpath do
 
   describe "#up_to" do
     it "should find a lib" do
-      module_host.repath(module_host.up_to("lib", "/a/b/c/lib/d/e/f")).should == "/a/b/c/lib"
+      module_host.up_to("lib", "/a/b/c/lib/d/e/f").should == "/a/b/c/lib"
     end
 
     it "should raise if not available" do
@@ -44,7 +56,7 @@ describe Valise::Unpath do
 
   describe "#from_here" do
     it "should manage relative paths" do
-      module_host.repath(module_host.from_here("../../thing", "/a/b/c/d/e")).should == "/a/b/c/thing"
+      module_host.from_here("../../thing", "/a/b/c/d/e").should == "/a/b/c/thing"
     end
   end
 
