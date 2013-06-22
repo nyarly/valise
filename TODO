@@ -1,3 +1,15 @@
+Really need to have a useful error message (or at least a hint) that a search
+root doesn't exist. Just spend 15 minutes trying to track down an API problem
+when the issue was that I was pointing at a wrong directory
+
+Also: better errors for unregistered strategies - the available ones would help
+
+Find directories by searching up until you find a file ... example would be to
+look for .git dir and use that as the root of a code repo. Tricky because might
+accidentally include the root - but also something like "build a Set out of all
+the directories above this one with this_app_config dirs" - combined with hash
+merge, allows for very powerful per-directory config
+
 Considering: a Stack and a PathMatcher could be the same thing.  Thinking: the
 path passed to Stack could have marked regexp patterns - that becomes * for
 fnmatch and regexp.  Stack produces paths with *, we expand those, and match
@@ -54,8 +66,5 @@ Some structural refactoring
 DOCUMENTATION
 
 A presentation, maybe
-
-Corundumizing
-
 
 More mundane note, need at least a FileNotFound error

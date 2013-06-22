@@ -11,14 +11,22 @@ describe Valise, "tilt adapter" do
 
   before :each do
     sandbox.new :directory => "templates"
-    sandbox.new :file => "templates/template.erb", :with_contents => "<%= test %>"
+    sandbox.new :file => "templates/template.erb", :with_contents => "<%= render 'included' %>"
+    sandbox.new :file => "templates/included.erb", :with_contents => "<%= test %>"
+    sandbox.new :file => "templates/plain-file",   :with_contents => "<%= test %>"
   end
 
   let :template_scope do
     Object.new.tap do |obj|
+      def obj.render(path)
+        @templates.find(path).contents.render(self, {})
+      end
+
       def obj.test
         "hello"
       end
+
+      obj.instance_variable_set("@templates", templates)
     end
   end
 
@@ -35,7 +43,17 @@ describe Valise, "tilt adapter" do
   end
 
   it "should load and render" do
-    templates.find("template").contents.render(template_scope, {}).should == "hello"
+    template_scope.render("template").should == "hello"
   end
 
+  it "should load templates" do
+    contents = templates.find("template").contents
+    contents.should be_a_kind_of(Tilt::Template)
+  end
+
+  it "should load plain files" do
+    contents = templates.find("plain-file").contents
+    contents.should_not be_a_kind_of(Tilt::Template)
+    contents.should == "<%= test %>"
+  end
 end
