@@ -6,131 +6,56 @@ module Valise
     include Enumerable
 
     def self.build(path, value = true)
-      case path
-      when PathMatcher
-        return path
-      when String, Array
-        matcher = PathMatcher.new
-        matcher[path] = value
-        return matcher
-      else
-        raise ArgumentError, "Path matchers can only be built from arrays or strings"
-      end
+      return path if PathMatcher === path
+      path = Unpath::make_pathname(path).to_s
+      self.new(path, value)
     end
 
-    def initialize(segment = nil)
-      @children = []
-      @segment = segment
-      @value = nil
+    def initialize(first_pattern=nil, first_value=true)
+      @pattern_pairs = []
+      set(first_pattern, first_value) unless first_pattern.nil?
     end
 
-    attr_reader :segment
+    def ===(path)
+      path = make_pathname(path)
+      fetch(path)
+      return true
+    rescue KeyError
+      return false
+    end
 
-    def each_pair(prefix = [])
-      segments = prefix.dup
-      segments << @segment if @segment
-      @children.each do |child|
-        child.each_pair(segments) do |segments, value|
-          yield(segments, value)
+    def fetch(path)
+      @pattern_pairs.each do |pattern, value|
+        if path.fnmatch?(pattern)
+          return value
         end
       end
-      yield(segments, @value) if @value
+      raise KeyError, "No pattern matches #{path.to_s}"
     end
 
-    def each(prefix = [])
-      each_pair do |segments, value|
-        yield(segments) if !!value
+    def [](path)
+      fetch(path)
+    rescue KeyError
+      nil
+    end
+
+    def set(pattern, value)
+      @pattern_pairs.delete_if do |old_pattern, _|
+        pattern == old_pattern
+      end
+      @pattern_pairs << [pattern.to_s, value]
+    end
+    alias []= set
+
+    def each_pair
+      @pattern_pairs.each do |pattern, value|
+        yield pattern, value
       end
     end
 
     def merge!(other)
-      other.each_pair do |path, value|
-        self[path] = value
-      end
-    end
-
-    def [](path)
-      retreive(unpath(path))
-    end
-
-    def retreive(segments)
-      if segments.empty?
-        return @value
-      else
-        @children.each do |child|
-          val = child.access(segments)
-          return val unless val.nil?
-        end
-      end
-      return nil
-    end
-
-    def access(segments)
-      return retreive(segments.drop(1)) if match?(segments.first)
-      return nil
-    end
-
-    def match?(segment)
-      @segment == segment
-    end
-
-    def []=(pattern, result)
-      store(unpath(pattern), result)
-    end
-
-    def ===(path)
-      return !!self[path]
-    end
-
-    def store(segments, result)
-      if segments.empty?
-        @value = result
-      else
-        index = segments.shift
-        target = @children.find {|child| child.segment == index } ||
-          case index
-          when "**"; DirGlob.new.tap{|m| @children << m}
-          when /.*[*].*/; FileGlob.new(index).tap{|m| @children << m}
-          else; PathMatcher.new(index).tap{|m| @children.unshift m}
-          end
-        target.store(segments, result)
-      end
-    end
-  end
-
-  class DirGlob < PathMatcher
-    def initialize
-      super('**')
-    end
-
-    def match?(segment)
-      true
-    end
-
-    def access(segments)
-      if segments.empty?
-        return @value
-      else
-        retreive(segments) || access(segments.drop(1))
-      end
-    end
-  end
-
-  class FileGlob < PathMatcher
-    def initialize(segment)
-      super
-      @regex = %r{^#{segment.gsub(/[.]/, "[.]").gsub(/[*]/,".*")}$}
-    end
-
-    def match?(segment)
-      @regex =~ segment
-    end
-
-    def store(segments, result)
-      if segments.empty?
-        @value = result
-      else
-        raise ArgumentError, "File globs can only be used as suffixes"
+      other.each_pair do |pattern, value|
+        set(pattern, value)
       end
     end
   end

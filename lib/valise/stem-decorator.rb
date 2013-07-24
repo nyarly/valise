@@ -19,18 +19,21 @@ module Valise
       @search_root.segments = segments
     end
 
+    def stem_pattern
+      (@stem + "**").to_s
+    end
+
     def under_stem(path)
-      segments = unpath(path)
-      top_part = segments[0...@stem.length]
-      if top_part == @stem
-        return segments[@stem.length..-1]
+      segments = make_pathname(path)
+      if path.fnmatch?(stem_pattern)
+        return path.relative_path_from(@stem)
       else
         raise Errors::PathOutsideOfRoot
       end
     end
 
     def inspect
-      "#{self.class.name.split(":").last}:[#{@stem.join("/")}]#{@search_root.inspect}"
+      "#{self.class.name.split(":").last}:[#{@stem.to_s}]#{@search_root.inspect}"
     end
 
     def each

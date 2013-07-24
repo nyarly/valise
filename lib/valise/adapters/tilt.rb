@@ -39,7 +39,7 @@ module Valise
         if block_given?
           options = yield(mapping)
         end
-        new_set.add_serialization_handler("**/*.#{mapping}", :tilt, options)
+        new_set.add_serialization_handler("**.#{mapping}", :tilt, options)
       end
       new_set
     end

@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Valise
   module StringTools
     def align(string)
@@ -17,8 +19,6 @@ module Valise
     module_function :align
   end
 
-  #XXX This has been overtaken by std-lib Pathname and should be mostly
-  #refactored out
   module Unpath
     def string_to_segments(string)
       return string if string.empty?
@@ -31,7 +31,7 @@ module Valise
 
     def from_here(rel_path, base_path = nil)
       base_path ||= file_from_backtrace(caller[0])
-      repath(collapse(unpath(base_path) + unpath(rel_path)))
+      make_pathname(base_path) + make_pathname(rel_path)
     end
 
     def up_to(up_to = nil, base_path = nil)
@@ -39,80 +39,45 @@ module Valise
       up_to ||= "lib"
 
       abs_path = File::expand_path(base_path)
-      base_path = unpath(base_path)
-      until base_path.empty? or base_path.last == up_to
-        base_path.pop
+      base_path = make_pathname(base_path)
+
+      base_path.ascend do |path|
+        if path.basename.to_s == up_to
+          return path
+        end
       end
 
-      if base_path.empty?
-        raise "Relative root #{up_to.inspect} not found in #{abs_path.inspect}"
-      end
-
-      return repath(base_path)
+      raise "Relative root #{up_to.inspect} not found in #{abs_path.inspect}"
     end
 
-    def unpath(parts)
-      if Array === parts and parts.length == 1
-        parts = parts[0]
-      end
+    def clean_pathname(pathname)
+      pathname.sub(/^~[^#{File::Separator}]*/) do |homedir|
+        File::expand_path(homedir)
+      end.cleanpath
+    end
 
+    def make_pathname(parts)
       case parts
+      when Pathname
+        return clean_pathname(parts)
       when Array
-        if (parts.find{|part| not (String === part or Symbol === part)}.nil?)
-          parts = parts.map{|part| string_to_segments(part.to_s)}.flatten
+        unless parts.any?{|part| not (String === part or Symbol === part)}
+          parts = File::join(parts.map{|part| part.to_s})
         else
           raise ArgumentError, "path must be composed of strings or symbols"
         end
       when String
-        parts = string_to_segments(parts)
       when Symbol
-        parts = string_to_segments(parts.to_s)
+        parts = parts.to_s
       when ::File
         parts = parts.path
-        parts = parts.split(::File::Separator)
       else
         raise ArgumentError, "path must be String, Array of Strings or File"
       end
-
-      if /^~/ =~ parts[0]
-        parts = ::File::expand_path(parts[0]).split(::File::Separator) + parts[1..-1]
-      end
-
-      return parts
+      pathname = clean_pathname(Pathname.new(parts))
     end
 
-    def collapse(segments)
-      collapsed = []
-      segments.each do |segment|
-        case segment
-        when '.'
-        when ""
-          if collapsed.empty?
-            collapsed.push segment
-          end
-        when '..'
-          if collapsed.empty?
-            collapsed.push segment
-          else
-            collapsed.pop
-          end
-        else
-          collapsed.push segment
-        end
-      end
-      collapsed
-    end
-
-    def repath(segments)
-      case segments
-      when Array
-        return segments.join(::File::Separator)
-      when String
-        return segments
-      end
-    end
-
-    module_function :from_here, :up_to, :unpath, :repath, :string_to_segments, :file_from_backtrace
+    module_function :from_here, :up_to, :string_to_segments, :file_from_backtrace, :make_pathname, :clean_pathname
     public :from_here, :up_to, :file_from_backtrace
   end
 end

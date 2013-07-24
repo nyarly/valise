@@ -6,7 +6,9 @@ module Valise
       def initialize(stack)
         @stack = stack
         @extensions = []
-        @stacks = Hash.new{|h,segments| h[segments] = @stack.valise.get(segments) }
+        @stacks = Hash.new do |h,segments|
+          h[segments] = @stack.valise.get(segments)
+        end
       end
 
       attr_accessor :extensions
@@ -41,9 +43,8 @@ module Valise
         return enum_for(:each) unless block_given?
         @stack.each do |item|
           @extensions.each do |ext|
-            dir = item.segments.dup
-            file = dir.pop
-            ext_stack = @stacks[dir + [file + ext]]
+            dir, file = *item.segments.split
+            ext_stack = @stacks[dir + (file.to_s + ext)]
             yield(ext_stack.item_for(item.root))
           end
         end

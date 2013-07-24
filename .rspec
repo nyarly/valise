@@ -1,3 +1,4 @@
+-r simplecov
 --format documentation
 --out last_run
 --color

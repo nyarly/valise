@@ -31,7 +31,7 @@ describe Valise do
     end
 
     it "should populate successfully" do
-      @to.find("egg").contents.should == "yolk"
+      @to.contents("egg").should == "yolk"
       @to.find("existed").contents.should == "TEST"
     end
   end
@@ -45,7 +45,7 @@ describe Valise do
 
     it "should populate successfully" do
       @to.find("egg").contents.should == "yolk"
-      @to.find("existed").contents.should == "TEST"
+      @to.contents("existed").should == "TEST"
     end
   end
 end

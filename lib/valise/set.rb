@@ -24,8 +24,8 @@ module Valise
       search_roots.inspect
     end
 
-    def to_s
-      search_roots.map(&:to_s).join(":")
+    def to_s(joiner=nil)
+      search_roots.map(&:to_s).join(joiner||":")
     end
 
     def exts(*extensions)
@@ -49,7 +49,7 @@ module Valise
     end
 
     def sub_set(path)
-      segments = unpath(path)
+      segments = make_pathname(path)
       transform do |roots|
         roots.map do |root|
           new_root = root.dup
@@ -60,7 +60,7 @@ module Valise
     end
 
     def stemmed(path)
-      segments = unpath(path)
+      segments = make_pathname(path)
       transform do |roots|
         roots.map do |root|
           StemDecorator.new(segments, root)
@@ -102,7 +102,13 @@ module Valise
       search_roots << search_root
     end
 
+    def clean_pattern(pattern)
+      #deprecation warning maybe
+      pattern.sub(%r{^[*][*]/[*]}, '**')
+    end
+
     def add_handler(segments, serialization_class, merge_diff_class)
+      segments = clean_pattern(segments)
       add_serialization_handler(segments, serialization_class)
       add_merge_handler(segments, merge_diff_class)
     end
@@ -133,13 +139,13 @@ module Valise
       :serialization=, :serialization
 
     def merge_diff_for(stack)
-      type, options = *(merge_diff[unpath(stack.segments)] || [])
+      type, options = *(merge_diff[make_pathname(stack.segments)] || [])
       options = (options || {}).merge(:stack => stack)
       Strategies::MergeDiff.instance(type, options)
     end
 
     def serialization_for(stack)
-      type, options = *serialization[unpath(stack.segments)]
+      type, options = *serialization[make_pathname(stack.segments)]
       Strategies::Serialization.instance(type, options)
     end
 
@@ -158,6 +164,10 @@ module Valise
 
     def find(path)
       get(path).find
+    end
+
+    def contents(path)
+      find(path).contents
     end
 
     def each(&block)

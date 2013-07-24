@@ -10,33 +10,23 @@ module Valise
     include Enumerable
 
     def initialize(path)
-      @segments = unpath(path)
+      @segments = make_pathname(path)
     end
 
     attr_accessor :segments
 
-    #ALL_FILES = PathMatcher.build('**')
     def each(pathmatch = nil)
-#      pathmatch ||= ALL_FILES
-#      files = pathmatch.fnmatchers(@segments).inject([]) do |list, fnmatch|
-#        list + Dir.glob(fnmatch).find_all{|path| File::file?(path)}
-#      end
-#      pathmatch.sort(files).each
-#
-#
-      paths = [[]]
+      paths = [make_pathname("")]
       until paths.empty?
         rel = paths.shift
-        path = repath(@segments + rel)
+        path = @segments + rel
         #symlinks?
-        if(File::directory?(path))
-          Dir.entries(path).each do |entry|
-            next if entry == "."
-            next if entry == ".."
-            paths.push(rel + [entry])
+        if path.directory?
+          paths += path.children(false).map do |child|
+            rel + child
           end
-        elsif(File::file?(path))
-          yield(unpath(rel))
+        elsif path.file?
+          yield rel
         end
       end
     end
@@ -50,7 +40,7 @@ module Valise
     end
 
     def full_path(segments)
-      repath(@segments + segments)
+      (@segments + make_pathname(segments)).to_s
     end
 
     def write(item)
@@ -96,7 +86,7 @@ module Valise
     end
 
     def full_path(segments)
-      "<DEFAULTS>:" + repath(segments)
+      "<DEFAULTS>:" + segments.to_s
     end
 
     def present?(segments)
@@ -105,7 +95,7 @@ module Valise
 
     def each
       @files.each_key do |path|
-        yield(unpath(path))
+        yield(make_pathname(path))
       end
     end
 
@@ -133,7 +123,7 @@ module Valise
         end
         check_path.pop
       end
-      @files[path] = contents
+      @files[make_pathname(path)] = contents
     end
 
     def add_dir(path)

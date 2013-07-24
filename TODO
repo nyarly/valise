@@ -1,8 +1,48 @@
+Test support:
+  matchers for "this valise would look up <path> and find <full path> if it
+  existed
+
+  Quick mock valise - if you're using Valise for file access, mock this hash of
+  files in
+
+Switch from "segments" to Pathname - but check this use case from RhetButler:
+
+      @base_valise.sub_set("templates").glob("assets/**").map do |stack|                                               stack.segments[1..-2] +
+          [stack.segments.last.sub(/(.*(?:\..*)?).*/){|| $1}]
+      end.uniq.each do |target_file|                                                                                   target_valise.get(target_file).writable.first.contents =
+          template_handler.render(target_file, nil)
+      end
+
+That is: look for all the blah.html.erb and thing.css.sass files in assets,
+render them (if they need rendering) and then write them to the appropriate
+path. (That is: the path without a template extension) Should be doable...
+
+Some extra access methods:
+  set.contents(path) -> the contents
+  set.write_to(path, contents) (first writable)
+  set.raw(path) -> the actual string at that parth
+  set.raw_write_to(path, contents) etc
+
 Really need to have a useful error message (or at least a hint) that a search
 root doesn't exist. Just spend 15 minutes trying to track down an API problem
 when the issue was that I was pointing at a wrong directory
 
+Nice way to format search paths.  It'd be nice for client code to be able to
+quickly output:
+
+Searching for meaning in:
+  .
+  ~/.place
+  /etc/place
+
+With some config on how to do that.
+
+Likewise, a tool to catch Valise::NotFound and print a nice error instead of
+the single-line thing
+
 Also: better errors for unregistered strategies - the available ones would help
+
+I got the error "some_path not found in nil" from Stack - @valise == nil ...
 
 Find directories by searching up until you find a file ... example would be to
 look for .git dir and use that as the root of a code repo. Tricky because might
@@ -28,40 +68,18 @@ find the "best" match in any root, then write to that path in the best root.
 
 *** Anything below this line needs review: might be done. ***
 
-Child Sets - often there's an overall Valise, and then parts of the app want to
-use only a subdirectory of the set - Valise::Set#child('templates') should
-return a facade on the set to read and write files under 'templates'
+Utility function for ExtensionDecorator:
+  find "settings" and look for settings.yaml, settings.json, settings.xml,
+  settings.cfg, and manipulate their contents regardless.
+  So that's: make an extension decorator for everything that we can parse into
+  a hash, and mark each of settings.{...} as hash_merge etc.
+  Needs control for preference of write format
 
-The facility to treat particular files as if they contain a particular kind of
-data (e.g. yaml) has been removed.  I'd like to get that back.  It'd be nice to
-open a yaml file and get structured data, manipulate it, and put it back as
-yaml.
-
-Even cooler might be to be able to replicate the Ruby require funtionality -
-find "settings" and look for settings.yaml, settings.json, settings.xml,
-settings.cfg, and manipulate their contents regardless.
-
-Really this is a Metadata feature, although there's a related but orthagonal
-behavior to path searching.  First: there's searching by filetype, and
-populating by filetype.  Sets might become a convolution of some kind of search
-roots and metadata-rulesets.
-
-Which implies config/convention about how to manage both the search and the
-population.  I kind of think a "reading English" style convention is probably
-correct: l->r,t->b :: filetype,searchroot.  Likewise, DefinedDefaults need a
-way to prefer one over the other.
 
 !  The real test case is: I want to populate {:hash => { :of => ["Arrays"]}} -
 the population/search preference is for JSON,YAML,XML - and there is a YAML
 file in the Set - when do we write hash_of_arrays.json, when do we replace
 hash_of_arrays.yaml, etc...
-
-There's also the process of matching a file to a filetype - just extension?
-
-I'm also still not completely convinced of the names used in the API.  Needs a
-fresh look, some final decisions, and a final pass.
-
-Some structural refactoring
 
 DOCUMENTATION
 

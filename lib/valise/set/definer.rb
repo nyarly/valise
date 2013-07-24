@@ -7,7 +7,7 @@ module Valise
     class StemmedDefiner
       include Unpath
       def initialize(path, set)
-        @segments = unpath(path)
+        @segments = make_pathname(path)
         @target = set
       end
 
@@ -43,7 +43,7 @@ module Valise
       end
 
       def handle(path, serialization, merge_diff = nil)
-        @target.add_handler(unpath(path),
+        @target.add_handler(make_pathname(path),
                             serialization,
                             merge_diff)
       end

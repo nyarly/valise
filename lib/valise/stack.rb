@@ -9,18 +9,18 @@ module Valise
     include ItemEnum
 
     def inspect
-      "<default>:#{(@segments||%w{?}).join "/"} #{@valise.inspect}"
+      "<default>:#{(@segments||%{?})} #{@valise.inspect}"
     end
 
     def initialize(path, set)
-      @segments = collapse(unpath(path))
+      @segments = make_pathname(path)
       @valise = set
     end
 
     attr_reader :segments, :valise
 
     def rel_path
-      repath(@segments)
+      @segments
     end
 
     def merge_diff
@@ -58,7 +58,7 @@ module Valise
     def find
       item = present.first
       return item unless item.nil?
-      raise Errors::NotFound, "#{rel_path} not found in #{@valise.inspect}"
+      raise Errors::NotFound, "'#{rel_path}' not found in #{valise.inspect}"
     end
 
     def exts(*extensions)

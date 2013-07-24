@@ -36,7 +36,7 @@ describe Valise do
 
   describe "retrieving files" do
     it "should get default text files" do
-      @valise.find("text").contents.should == "Some text"
+      @valise.contents("text").should == "Some text"
       @valise.find(:text).contents.should == "Some text"
     end
 
