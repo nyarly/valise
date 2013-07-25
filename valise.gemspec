@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
 
     lib/valise.rb
     lib/valise/item-enum.rb
-    lib/valise/debugging.rb
     lib/valise/utils.rb
     lib/valise/errors.rb
     lib/valise/adapters.rb
