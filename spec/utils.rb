@@ -57,8 +57,8 @@ describe Valise::Unpath do
       Dir.chdir "down/the/rabbit/hole"
     end
 
-    subject :finder do
-      Valise::Unpath::WorkspaceFinder.new.tap do |finder|
+    subject :found do
+      Valise::Unpath::containing_workspace do |finder|
         finder.search_from = "."
         finder.workspace_children = ["weird"]
         finder.description = "Weird test workspace"
@@ -66,11 +66,11 @@ describe Valise::Unpath do
     end
 
     it "should find workspace" do
-      finder.find.to_s.should == @sandbox.root
+      found.to_s.should == @sandbox.root
     end
 
     it "should return a pathname" do
-      finder.find.should be_an_instance_of Pathname
+      found.should be_an_instance_of Pathname
     end
   end
 
