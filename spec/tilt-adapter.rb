@@ -47,12 +47,12 @@ describe Valise, "tilt adapter" do
   end
 
   it "should load templates" do
-    contents = templates.find("template").contents
+    contents = templates.contents("template")
     contents.should be_a_kind_of(Tilt::Template)
   end
 
   it "should load plain files" do
-    contents = templates.find("plain-file").contents
+    contents = templates.contents("plain-file")
     contents.should_not be_a_kind_of(Tilt::Template)
     contents.should == "<%= test %>"
   end

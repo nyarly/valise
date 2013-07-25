@@ -1,4 +1,3 @@
-require 'valise/debugging'
 require 'valise/errors'
 require 'valise/search-root'
 require 'valise/utils'
@@ -10,7 +9,6 @@ require 'valise/set/extensions-decorator'
 
 module Valise
   class Set
-    include Debugging
     include Enumerable
     include Unpath
 

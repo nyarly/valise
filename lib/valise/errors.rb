@@ -1,6 +1,6 @@
 module Valise
   module Errors
-    class Error < ::Exception; end
+    class Error < ::StandardError; end
 
     class PathOutsideOfRoot < Error; end
     class PathNotInRoot < Error; end
@@ -11,6 +11,7 @@ module Valise
     class MalformedTree < Error; end
     class RootNotInSet < Error; end
     class UnderIndented < Error; end
+    class NoMatchingPath < Error; end
 
     class UnregisteredStrategy < Error
       def initialize(klass, type)

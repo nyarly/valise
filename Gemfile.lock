@@ -1,15 +1,7 @@
 PATH
   remote: .
   specs:
-    valise (0.9.2)
-
-PATH
-  remote: ../cadre
-  specs:
-    cadre (0.0.1)
-      thor (~> 0.18.1)
-      tilt (~> 1.4.1)
-      valise (~> 0.9)
+    valise (1.0.0)
 
 GEM
   remote: http://rubygems.org/
@@ -66,7 +58,6 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
-    thor (0.18.1)
     tilt (1.4.1)
     yard (0.8.5.2)
 
@@ -74,7 +65,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cadre!
   corundum
   fuubar
   tilt
