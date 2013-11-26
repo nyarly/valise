@@ -46,6 +46,8 @@ Gem::Specification.new do |spec|
     lib/valise/set/extensions-decorator.rb
 
     lib/valise/stack.rb
+    lib/valise/stack/decorator.rb
+    lib/valise/stack/prefixes-decorator.rb
     lib/valise/stack/extensions-decorator.rb
     lib/valise/stem-decorator.rb
 

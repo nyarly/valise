@@ -7,7 +7,7 @@ module Corundum
   end
 
   tk.in_namespace do
-    sanity = GemspecSanity.new(tk)
+    sanity = GemspecFiles.new(tk)
     rspec = RSpec.new(tk)
     cov = SimpleCov.new(tk, rspec) do |cov|
       cov.threshold = 90
