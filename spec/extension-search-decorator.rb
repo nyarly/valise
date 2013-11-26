@@ -1,7 +1,7 @@
 require 'valise/set'
 require 'valise/stack'
 
-describe Valise::Stack::ExtensionsDecorator do
+describe Valise::Stack::Decorator do
   let :valise do
     Valise::Set::define do
       rw "top"
@@ -12,6 +12,10 @@ describe Valise::Stack::ExtensionsDecorator do
 
   let :base_stack do
     valise.get("thing")
+  end
+
+  let :first_pfx do
+    base_stack.pfxs("", "_")
   end
 
   let :first_exts do
@@ -43,6 +47,10 @@ describe Valise::Stack::ExtensionsDecorator do
       bottom/thing.b   bottom/thing.b.x bottom/thing.b.y bottom/thing.b.z
       bottom/thing.c   bottom/thing.c.x bottom/thing.c.y bottom/thing.c.z
     }
+  end
+
+  it "should enumerate prefixes correctly" do
+    first_pfx.map{|item| item.full_path}.should == %w{ top/thing top/_thing middle/thing middle/_thing bottom/thing bottom/_thing }
   end
 
   it "should enumerate paths correctly" do

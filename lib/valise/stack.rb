@@ -2,6 +2,7 @@ require 'valise/utils'
 require 'valise/item-enum'
 require 'valise/strategies/merge-diff'
 require 'valise/stack/extensions-decorator'
+require 'valise/stack/prefixes-decorator'
 
 module Valise
   class Stack
@@ -65,6 +66,12 @@ module Valise
       exts = ExtensionsDecorator.new(self)
       exts.extensions = extensions
       return exts
+    end
+
+    def pfxs(*prefixes)
+      pfxs = PrefixesDecorator.new(self)
+      pfxs.prefixes = prefixes
+      return pfxs
     end
 
     def reget(root)

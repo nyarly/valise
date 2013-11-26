@@ -33,7 +33,7 @@ module Valise
     def templates(rel_path=nil)
       rel_path ||= "templates"
       new_set = self.sub_set(rel_path)
-      new_set = new_set.exts(*([""] + Tilt.mappings.map{|mapping, _| "." + mapping}))
+      new_set = new_set.pfxs("", "_").exts(*([""] + Tilt.mappings.map{|mapping, _| "." + mapping}))
       ::Tilt.mappings.each do |mapping, _|
         options = nil
         if block_given?

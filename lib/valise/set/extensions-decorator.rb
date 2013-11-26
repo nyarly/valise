@@ -2,18 +2,13 @@ require 'valise/set'
 
 module Valise
   class Set
-    class ExtensionsDecorator < Set
+    class Decorator < Set
       def initialize(set)
         @set = set
-        @extensions = []
       end
-      attr_accessor :extensions
+
       attr_reader :set
       protected :set
-
-      def inspect
-        super + "x#{extensions.inspect}"
-      end
 
       def search_roots
         set.search_roots
@@ -25,6 +20,34 @@ module Valise
 
       def serialization
         set.serialization
+      end
+    end
+
+    class PrefixesDecorator < Decorator
+      def initialize(set)
+        super
+        @prefixes = []
+      end
+      attr_accessor :prefixes
+
+      def inspect
+        "#{prefixes.inspect}x#{super}"
+      end
+
+      def get(path)
+        set.get(path).exts(*prefixes)
+      end
+    end
+
+    class ExtensionsDecorator < Decorator
+      def initialize(set)
+        super
+        @extensions = []
+      end
+      attr_accessor :extensions
+
+      def inspect
+        super + "x#{extensions.inspect}"
       end
 
       def get(path)

@@ -32,6 +32,12 @@ module Valise
       return exts
     end
 
+    def pfxs(*prefixes)
+      pfxs = PrefixesDecorator.new(self)
+      pfxs.prefixes = prefixes
+      return pfxs
+    end
+
     def transform
       set = self.class.new
       set.search_roots = yield search_roots

@@ -1,29 +1,29 @@
 require 'valise/stack/decorator'
 module Valise
   class Stack
-    class ExtensionsDecorator < Decorator
+    class PrefixesDecorator < Decorator
       def initialize(stack)
         super
-        @extensions = []
+        @prefixes = []
       end
 
-      attr_accessor :extensions
+      attr_accessor :prefixes
 
       def inspect
-        @stack.inspect + "x#{extensions.inspect}"
+        "#{prefixes.inspect}x#{@stack.inspect}"
       end
 
       def reget(root)
         decorated = self.new(super)
-        decorated.extensions = self.extensions
+        decorated.prefixes = self.prefixes
         decorated
       end
 
       def decorate_item(item)
         dir, file = *item.segments.split
-        @extensions.each do |ext|
-          ext_stack = @stacks[dir + (file.to_s + ext)]
-          yield(ext_stack.item_for(item.root))
+        @prefixes.each do |pfx|
+          dec_stack = @stacks[dir + (pfx + file.to_s)]
+          yield(dec_stack.item_for(item.root))
         end
       end
     end

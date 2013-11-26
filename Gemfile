@@ -1,5 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'tilt'
-gem 'fuubar'
+group :test do
+  gem 'tilt'
+  gem 'fuubar'
+  gem 'cadre'
+end
+
 gemspec
