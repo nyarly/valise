@@ -1,3 +1,4 @@
+require 'valise/cache'
 require 'valise/errors'
 require 'valise/search-root'
 require 'valise/utils'
@@ -16,6 +17,7 @@ module Valise
       @search_roots = []
       @merge_diff = PathMatcher.new
       @serialization = PathMatcher.new
+      @cache = Cache.new
     end
 
     def inspect
@@ -160,6 +162,10 @@ module Valise
 
     def handler_lists
       [merge_diff, serialization]
+    end
+
+    def cached(domain, key)
+      @cache.domain(domain)[key] ||= yield
     end
 
     def get(path)

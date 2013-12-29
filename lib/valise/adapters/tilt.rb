@@ -30,18 +30,65 @@ module Valise
   end
 
   class Set
+    class TiltTemplateConfiguration
+      def initialize
+        @template_types = {}
+        @plain_files = true
+      end
+
+      attr_reader :template_types
+      attr_accessor :plain_files
+
+      def add_type(type, options)
+        template_types[type] = options
+      end
+
+      def extensions
+        template_types.keys.map{|type| ".#{type}"} + (@plain_files ? [""] : [])
+      end
+
+      def add_extenstions(set)
+        set.exts(*extensions)
+      end
+
+      def add_serializations(set)
+        template_types.each do |mapping, options|
+          set.add_serialization_handler("**.#{mapping}", :tilt, options)
+        end
+      end
+
+      def apply(set)
+        set = add_extenstions(set)
+        add_serializations(set)
+        set
+      end
+    end
+
+    def handle_templates(&block)
+      config = TiltTemplateConfiguration.new
+
+      if block.arity == 1
+        yield config
+      else
+        config.instance_eval(&block)
+      end
+
+      config.apply(self)
+    end
+
     def templates(rel_path=nil)
       rel_path ||= "templates"
       new_set = self.sub_set(rel_path)
-      new_set = new_set.pfxs("", "_").exts(*([""] + Tilt.mappings.map{|mapping, _| "." + mapping}))
-      ::Tilt.mappings.each do |mapping, _|
-        options = nil
-        if block_given?
-          options = yield(mapping)
+      new_set = new_set.pfxs("", "_")
+      new_set.handle_templates do |config|
+        ::Tilt.mappings.each do |mapping, _|
+          options = nil
+          if block_given?
+            options = yield(mapping)
+          end
+          config.add_type(mapping, options)
         end
-        new_set.add_serialization_handler("**.#{mapping}", :tilt, options)
       end
-      new_set
     end
   end
 end

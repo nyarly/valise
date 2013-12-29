@@ -1,5 +1,6 @@
 require 'valise/set'
 require 'valise/stack'
+require 'file-sandbox'
 
 describe Valise::Stack::Decorator do
   let :valise do
@@ -59,5 +60,17 @@ describe Valise::Stack::Decorator do
 
   it "should enumerate paths correctly from decorated search set" do
     decorated.get("thing").map{|item| item.full_path}.should == filenames
+  end
+
+  describe "#contents" do
+    include FileSandbox
+
+    before :each do
+      sandbox.new :file => "middle/thing.c.x", :with_contents => "middle/thing.c.x"
+    end
+
+    it "should return the contents of an existant file" do
+      decorated.contents("thing").should == "middle/thing.c.x"
+    end
   end
 end

@@ -10,7 +10,7 @@ module Valise
       attr_accessor :extensions
 
       def inspect
-        @stack.inspect + "x#{extensions.inspect}"
+        @stack.inspect + "xS#{extensions.inspect}"
       end
 
       def reget(root)

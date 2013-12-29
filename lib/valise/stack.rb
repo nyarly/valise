@@ -56,10 +56,16 @@ module Valise
       valise.depth_of(item.root)
     end
 
-    def find
+    def raw_find
       item = present.first
       return item unless item.nil?
-      raise Errors::NotFound, "'#{rel_path}' not found in #{valise.inspect}"
+      raise Errors::NotFound, "#{self.inspect} not found"
+    end
+
+    def find
+      valise.cached(:find, rel_path) do
+        raw_find
+      end
     end
 
     def exts(*extensions)

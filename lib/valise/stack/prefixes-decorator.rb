@@ -10,7 +10,7 @@ module Valise
       attr_accessor :prefixes
 
       def inspect
-        "#{prefixes.inspect}x#{@stack.inspect}"
+        "P#{prefixes.inspect}x#{@stack.inspect}"
       end
 
       def reget(root)

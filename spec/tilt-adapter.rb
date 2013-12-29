@@ -29,7 +29,7 @@ describe Valise, "tilt adapter" do
     let :template_scope do
       Object.new.tap do |obj|
         def obj.render(path)
-          @templates.find(path).contents.render(self, {})
+          @templates.contents(path).render(self, {})
         end
 
         def obj.test

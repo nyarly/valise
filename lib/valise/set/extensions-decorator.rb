@@ -31,7 +31,7 @@ module Valise
       attr_accessor :prefixes
 
       def inspect
-        "#{prefixes.inspect}x#{super}"
+        "#{prefixes.inspect}x#{set.inspect}"
       end
 
       def get(path)
@@ -47,7 +47,7 @@ module Valise
       attr_accessor :extensions
 
       def inspect
-        super + "x#{extensions.inspect}"
+        "#{set.inspect}x#{extensions.inspect}"
       end
 
       def get(path)
