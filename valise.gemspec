@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
     lib/valise/utils.rb
     lib/valise/errors.rb
     lib/valise/adapters.rb
+    lib/valise/cache.rb
 
     lib/valise/strategies/set.rb
     lib/valise/strategies/merge-diff.rb
