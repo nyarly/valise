@@ -78,7 +78,7 @@ module Valise
 
     def default_mappings
       if ::Tilt.respond_to? :default_mapping
-        mapping = ::Tile.default_mapping
+        mapping = ::Tilt.default_mapping
         mapping.template_map.merge(mapping.lazy_map).keys
       else
         ::Tilt.mappings.keys
@@ -96,7 +96,7 @@ module Valise
       new_set = self.sub_set(rel_path)
       new_set = new_set.pfxs("", "_")
       new_set.handle_templates do |config|
-        ::Tilt.mappings.each do |mapping, _|
+        default_mappings.each do |mapping|
           options = nil
           if block_given?
             options = yield(mapping)
