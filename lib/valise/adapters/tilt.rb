@@ -76,6 +76,21 @@ module Valise
       config.apply(self)
     end
 
+    def default_mappings
+      if ::Tilt.respond_to? :default_mapping
+        mapping = ::Tile.default_mapping
+        mapping.template_map.merge(mapping.lazy_map).keys
+      else
+        ::Tilt.mappings.keys
+      end
+    rescue => ex
+      warn "Couldn't access Tilt's default template mappings"
+      warn "  The specific error was #{ex}"
+      warn "  Falling back to an *empty* template list"
+      warn "  To add by hand, change #templates to #handle_template{|cfg| cfg.add_type('ext') }"
+      []
+    end
+
     def templates(rel_path=nil)
       rel_path ||= "templates"
       new_set = self.sub_set(rel_path)
