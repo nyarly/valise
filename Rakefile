@@ -14,14 +14,9 @@ module Corundum
     end
     gem = GemBuilding.new(tk)
     cutter = GemCutter.new(tk,gem)
-    email = Email.new(tk)
     vc = Git.new(tk) do |git|
       git.branch = "master"
     end
-    task tk.finished_files.build => vc["is_checked_in"]
-    yd = YARDoc.new(tk)
-    docs = DocumentationAssembly.new(tk, yd, rspec, cov)
-    pages = GithubPages.new(docs)
   end
 end
 

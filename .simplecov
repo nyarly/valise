@@ -6,6 +6,7 @@ SimpleCov.start do
   add_filter "vendor/bundle"
   formatter SimpleCov::Formatter::MultiFormatter[
     SimpleCov::Formatter::HTMLFormatter,
+    SimpleCov::Formatter::JSONFormatter,
     Cadre::SimpleCov::VimFormatter
   ]
 end
