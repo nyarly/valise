@@ -17,6 +17,6 @@ matrix:
       rvm: 2.1.2
 env:
   global:
-  - AMAZON_S3_BUCKET=lrd-travis-caching
+  - AMAZON_S3_BUCKET=lrd-travis-caching CUSTOM_BUNDLE_PATH=gemfiles/vendor/bundle
   - secure: kwviBuE+rmwtCOncb72Hm8rCGD6EqtsZgrIxevA3x01yxFZCUu792S2nWL3R5Lq8a4GnmNakalgkyyopK9UBhcdkBDWQs34UUQcW8OFctYLFF4iE2BWyjvZ025kyILZWs9H1BQDsPe5uNH0h4NqnT3OvdVs/95WjaTlDU7lWbeI=
   - secure: Azmcm6wNTe/grjwQlKzJonFKl3pr32Vf2CkoIUdZocvSB9j91g6DFntAPsAyT93JygzlB6jV8dMOKGVUsvcx4kNoGglhpoKOWwLjyI2e+90k4+sUNcANEawJr254wdh24x9ZeWPgR9MDMugJXXpHBwKURWG7FEdaxTFr5tVploU=
