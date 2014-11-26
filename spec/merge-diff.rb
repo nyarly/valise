@@ -70,7 +70,16 @@ describe Valise do
       middle_hash[:a] = {:a => {:a => 2}}
       top_hash[:a] = {:a => {:a => 1}}
 
+      item.contents[:a][:a][:a].should == 1
       item.stack.map{|stack| stack.contents[:a][:a][:a]}.should == [1,2,3,3]
+    end
+
+    it "should merge hashes" do
+      bottom_hash["a"] = {"a" => 1, "c" => "1"}
+      middle_hash["a"] = {"b" => 2}
+      top_hash["a"] = {"c" => 3}
+
+      item.contents["a"].should == {"a" => 1, "b" => 2, "c" => 3}
     end
   end
 
