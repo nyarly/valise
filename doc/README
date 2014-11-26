@@ -1,0 +1,74 @@
+== Valise
+=== Simple file management
+
+Applications tend to need preferences and configuration files, which can be a bit of a pain to maintain.  Valise allows you to describe a directory structure with raw files or YAML documents, and then populate the local directories of the install target.
+
+=== Features
+
+With Valise::Set you get the following things:
+* Default file contents
+* Search paths
+* Even simpler file access
+
+=== Usage
+
+Essentially, Valise::Set lets you do this:
+
+==== Search paths
+
+ set = Valise::Set.define do
+   rw %w{.myapp}
+   rw %w{~ .myapp}
+   rw [""] + %w{etc myapp}
+   ro from_here("myapp_defaults")
+ end
+
+When you create a fileset, the directories you give it define where in the
+filesystem it will work.
+
+Throughout, Valise::Set uses arrays of strings to reference files, which is a little cheaper when manipulating file paths, and slightly more platform agnostic than strings delimited by '/'.  Development so far has been entirely in Linux, so I'd imagine this will work pretty well on OS X, and mostly all right on Windows - although I wouldn't expect Windows-style %ESCAPES% to work.
+
+==== Definition
+ set.define do
+   dir 'www' do
+     file 'index.html', align(<<-EOF)
+     <<<
+     <html><body>
+       <h1 class="ironic">Sparse Docco</h1>
+     </body></html>
+     EOF
+   end
+
+   dir 'conf' do
+     yaml_file 'uses.yaml', {'count' => 1001}
+   end
+
+   dir 'empty'
+ end
+
+A few features:
+* a simple DSL for definition of files
+* Basic text or yaml file definition
+* Left flush alignment of file text (aligned an optional '<<<')
+* Definition blocks can be repeated, as can dir blocks, so the Valise::Set can be handed around to different program modules to collect their file requirements
+
+==== Filesystem population
+ set.populate
+
+This step creates directories and writes files.  The first directory listed in the search path used to initialize the Valise::Set that can be written to is the destination for the files.  The intention is that an administrator will be able to deploy system-wide configuration, while users will still be able to install default configs in their home directories.
+
+Valise::Set::populate won't overwrite existing files, so re-populating won't wipe out the configuration changes your users have made.
+
+Valise::Set::populate is intentionally left as a separate step, so that it can be initiated as appropriate to the application.  Some apps may want to populate automatically every time they're run, others might want to wait for a commandline switch.
+
+If populate is never run, the default values in the define block will be returned if the files are read.
+
+==== File access
+ set.load(%w{www index.html}) #=> "<html><body>...."
+ conf = set.get_file(%w{conf uses.yaml})
+ conf.contents['count'] += 1
+ conf.store
+
+Valise::Set#load returns the contents of the file: either a string or the data stored in the YAML document.
+
+Valise::Set#get_file returns a wrapper that allows the contents of the file to be accessed, changed, and then rewritten with Valise::Set#store.

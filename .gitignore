@@ -6,7 +6,8 @@ _MTN/
 cli.log
 corundum/
 coverage/
-doc/
+doc/coverage
+doc/Specifications
 email.txt
 last_run
 pkg/

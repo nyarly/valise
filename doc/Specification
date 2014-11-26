@@ -1,0 +1,72 @@
+
+FileSet error cases
+
+FileSet
+  should be a FileSet::Set
+  retrieving files
+    should get default text files
+    should get text files from library files
+    should get default nested files
+    should get text files from filesystem
+
+FileSet - the unpath method:
+  state => ["state"]
+  a File => #path
+
+FileSet
+  FileSet::Populator
+    should populate successfully
+  FileSet::ReversePopulator
+    should populate successfully
+
+FileSet
+  should be addable
+  should add in order
+
+FileSet::Item
+  full_path
+    should be an instance of FileSet::DefinedDefaults (FAILED - 1)
+  raw_file
+     (FAILED - 2)
+  contents
+     (FAILED - 3)
+  #contents=
+    should save contents (FAILED - 4)
+    should make contents available (FAILED - 5)
+    contents
+      should == "testing"
+
+Failures:
+
+  1) FileSet::Item full_path
+     Failure/Error: its (:full_path) { should == "./root/item" }
+     TypeError:
+       can't convert String into Array
+     # ./spec/item.rb:11
+
+  2) FileSet::Item raw_file
+     Failure/Error: its (:raw_file) { should == File::open("./root/item") }
+     TypeError:
+       can't convert String into Array
+     # ./spec/item.rb:12
+
+  3) FileSet::Item contents
+     Failure/Error: its (:contents) { should == nil }
+     TypeError:
+       can't convert String into Array
+     # ./spec/item.rb:13
+
+  4) FileSet::Item#contents= should save contents
+     Failure/Error: subject.save
+     TypeError:
+       can't convert String into Array
+     # ./spec/item.rb:23
+
+  5) FileSet::Item#contents= should make contents available
+     Failure/Error: subject.save
+     TypeError:
+       can't convert String into Array
+     # ./spec/item.rb:28
+
+Finished in 0.33091 seconds
+17 examples, 5 failures

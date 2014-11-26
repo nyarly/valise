@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
   spec.files		= %w[
     doc/README
     doc/Specification
-    doc/Specifications
     lib/valise.rb
     lib/valise/item-enum.rb
     lib/valise/utils.rb
