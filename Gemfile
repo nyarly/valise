@@ -6,4 +6,6 @@ group :test do
   gem 'cadre'
 end
 
+gem 'simplecov-json'
+
 gemspec
