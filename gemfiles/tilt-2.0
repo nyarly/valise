@@ -1,7 +1,5 @@
 source 'http://rubygems.org'
 
-group :test do
-  gem 'tilt', "~> 2.0.0"
-end
+gem 'tilt', "~> 2.0.0"
 
 gemspec :path => ".."
