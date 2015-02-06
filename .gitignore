@@ -18,3 +18,4 @@ gh-pages/
 .sass-cache/
 .cadre/
 errors.err
+.vim-role

@@ -37,8 +37,13 @@ module Valise
           item.each_pair do |key, value|
             case value
             when Hash
-              collect[key] ||= {}
-              deep_merge(collect[key], value)
+              existing = collect[key] ||= {}
+              case existing
+              when Hash
+                deep_merge(existing, value)
+              else
+                collect[key] = value
+              end
             else
               collect[key] = value
             end

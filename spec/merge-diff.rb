@@ -81,6 +81,13 @@ describe Valise do
 
       item.contents["a"].should == {"a" => 1, "b" => 2, "c" => 3}
     end
+
+    it "should merge mixed scalars and lists" do
+      bottom_hash["a"] = {"a" => 1, "b" => 1, "c" => [1], "d" => {"1" => 1}}
+      middle_hash["a"] = {"a" => [1], "b" => {"1" => 2}, "c" => 1, "d" => "1"}
+
+      item.contents["a"].should == {"a" => [1], "b" => {"1" => 2}, "c" => 1, "d" => "1"}
+    end
   end
 
   describe "diff" do
