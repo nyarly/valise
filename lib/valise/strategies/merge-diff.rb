@@ -24,11 +24,11 @@ module Valise
         register :hash_merge
 
         def merge(item)
-          merge_stack(@stack.not_above(item).reverse)
+          merge_stack(@stack.not_above(item))
         end
 
         def merge_stack(stack)
-          stack.present.inject({}) do |hash, item|
+          stack.present.reverse_each.inject({}) do |hash, item|
             deep_merge(hash, item.load_contents)
           end
         end

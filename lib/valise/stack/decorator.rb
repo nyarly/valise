@@ -5,21 +5,19 @@ module Valise
     class Decorator < Stack
       def initialize(stack)
         @stack = stack
-        @stacks = Hash.new do |h,segments|
-          h[segments] = @stack.valise.get(segments)
-        end
+        @stacks = {}
+      end
+
+      def sub_stack(segments)
+        @stacks[segments] ||= @stack.valise.get(segments)
+      end
+
+      def segments
+        @stack.segments
       end
 
       def valise
         @stack.valise
-      end
-
-      def merged(item)
-        item.stack.merged(item)
-      end
-
-      def diffed(item, value)
-        item.stack.diffed(item, value)
       end
 
       def rel_path

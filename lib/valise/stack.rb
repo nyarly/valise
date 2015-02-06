@@ -25,11 +25,11 @@ module Valise
     end
 
     def merge_diff
-      @valise.merge_diff_for(self)
+      valise.merge_diff_for(self)
     end
 
     def dump_load
-      @valise.serialization_for(self)
+      valise.serialization_for(self)
     end
 
     def merged(item)
@@ -81,7 +81,7 @@ module Valise
     end
 
     def reget(root)
-      root.get(@segments)
+      root.get(segments)
     end
 
     def item_for(root)

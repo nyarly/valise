@@ -129,7 +129,7 @@ module Valise
       when ::File
         parts = parts.path
       else
-        raise ArgumentError, "path must be String, Array of Strings or File"
+        raise ArgumentError, "path must be String, Array of Strings or File, was: #{parts.inspect} (#{parts.class})"
       end
       pathname = clean_pathname(Pathname.new(parts))
     end

@@ -19,12 +19,38 @@ module Valise
         decorated
       end
 
+      def sub_stack(stack, pfx)
+        SinglePrefixDecorator.new(stack, self, pfx)
+      end
+
       def decorate_item(item)
-        dir, file = *item.segments.split
         @prefixes.each do |pfx|
-          dec_stack = @stacks[dir + (pfx + file.to_s)]
+          dec_stack = sub_stack(item.stack, pfx)
           yield(dec_stack.item_for(item.root))
         end
+      end
+    end
+
+    class SinglePrefixDecorator < Decorator
+      def initialize(stack, lead_decco, pfx)
+        super(stack)
+        @leader = lead_decco
+        @pfx = pfx
+
+        dir, file = *(stack.segments.split.map(&:to_s))
+        @segments = make_pathname([dir, (pfx + file.to_s)])
+      end
+
+      def inspect
+        @stack.inspect + "^#@pfx"
+      end
+
+      def segments
+        @segments
+      end
+
+      def reget(root)
+        @leader.reget(root)
       end
     end
   end

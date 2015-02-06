@@ -21,6 +21,14 @@ module Valise
       def serialization
         set.serialization
       end
+
+      def add_serialization_handler(pattern, serializer, options = nil)
+        set.add_serialization_handler(pattern, serializer, options)
+      end
+
+      def add_merge_handler(pattern, merger, options = nil)
+        set.add_merge_handler(pattern, merger, options)
+      end
     end
 
     class PrefixesDecorator < Decorator
