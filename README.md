@@ -21,17 +21,17 @@ Ergo: Valise - the place you keep your files.
 
 Add
 
-```
+```ruby
 gem 'valise'
 ```
 to your Gemfile or
 
-```
+```ruby
 spec.add_dependency "valise"
 ```
 to your gemspec and
 
-```
+```ruby
 bundle install
 ```
 
@@ -65,7 +65,7 @@ loaded if it hasn't been replaced.
 Once we have a Valise::Set defined, there are a number of handy things we can
 do with it.
 
-```
+```ruby
 file_set.contents("config.txt")
 ```
 will load the contents from the top-most "config.txt" file. This is pretty much
@@ -143,7 +143,7 @@ new set that will search the paths of `dynamic_set` and then `fixed_set`.
 
 You can organize your file searching by producing so-called "sub_sets"
 
-```
+```ruby
 file_set.sub_set("controllers") #=> a new Valise::Set
 ```
 
@@ -155,7 +155,7 @@ set, and then have use cases for finding and using different sets of files.
 
 You can also set up sets that search for files over a list of extensions:
 
-```
+```ruby
 file_set.exts(".yml", ".yaml").contents("config")
 ```
 
@@ -164,7 +164,7 @@ This'll search in e.g. `.myapp/config.yml", then ".myapp/config.yaml", then
 
 Likewise, you can say:
 
-```
+```ruby
 file_set.pfxs("_", "")
 ```
 which'll get you a Rails-style search for _partials and then normal templates.
@@ -203,7 +203,7 @@ Core to the API metaphor for Valise is that once you've built a file set, you
 should be able to consider it as effectively a single directory. One way this
 is obvious is that you can:
 
-```
+```ruby
 file_set.files do |item|
   puts item.full_path, item.contents
 end
@@ -217,7 +217,7 @@ end
 
 You can also use Valise to quickly create a bunch of files:
 
-```
+```ruby
 file_set.populate
 ```
 
