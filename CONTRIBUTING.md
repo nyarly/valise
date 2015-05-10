@@ -1,6 +1,6 @@
 # Contributing
 
-Pull requests are heartily encourages
+Pull requests are heartily encouraged!
 
 Fork, then clone the repo:
 
