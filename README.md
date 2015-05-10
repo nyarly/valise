@@ -267,7 +267,7 @@ may not be 100% up to date.)
 
 ## Contributing
 
-See [CONTRIBUTING]
+See [CONTRIBUTING](CONTRIBUTING.md)
 
 ## Credits
 
@@ -275,4 +275,4 @@ Created and maintained by Judson Lester (@nyarly)
 
 ## License
 
-MIT license, c.f. [LICENSE]
+MIT license, c.f. [LICENSE](LICENSE)
