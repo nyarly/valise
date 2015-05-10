@@ -31,3 +31,5 @@ Dir['gemfiles/*'].delete_if{|path| path =~ /lock\z/ }.each do |gemfile|
   desc "Update all the bundler lockfiles for Travis"
   task :travis_gemfiles => gemfile_lock
 end
+
+task :default => :ci
