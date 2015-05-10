@@ -9,8 +9,8 @@ of (hopefully) sensible defaults, there's a system-wide config file in /etc
 somewhere, each user can have a config file at .coolapprc and sometimes you
 even get a per-project configuration file (if that makes sense for the app.)
 
-For instance, 'git' does something like this, with ~/.gitconfig and per-project
-.git directories. 'bash' works this way, with /etc/bashrc and ~/.bashrc.
+For instance, `git` does something like this, with ~/.gitconfig and per-project
+.git directories. `bash` works this way, with /etc/bashrc and ~/.bashrc.
 
 It's a really helpful pattern used in many Unix apps, especially since it makes
 complex flexible configuration much easier to grasp.  I miss it in a lot of
@@ -42,7 +42,7 @@ bundle install
 
 ### Setup
 
-First, we need to create a Set - a search path for files.
+First, we need to create a `Valise::Set` - a search path for files.
 
 ```ruby
 require 'valise'
@@ -67,7 +67,7 @@ loaded if it hasn't been replaced.
 
 ### Finding files
 
-Once we have a Valise::Set defined, there are a number of handy things we can
+Once we have a `Valise::Set` defined, there are a number of handy things we can
 do with it.
 
 ```ruby
@@ -108,6 +108,7 @@ Now, if you have
 
 `~/.myapp/config.yml`
 ```yaml
+---
 configured: well
 revision: 101
 ```
