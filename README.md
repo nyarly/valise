@@ -9,11 +9,16 @@ of (hopefully) sensible defaults, there's a system-wide config file in /etc
 somewhere, each user can have a config file at .coolapprc and sometimes you
 even get a per-project configuration file (if that makes sense for the app.)
 
-And that's a thing I really like about many Unix apps, and miss in a lot of
-Ruby apps.  But all that config file reading and path handling is kind of a
+For instance, 'git' does something like this, with ~/.gitconfig and per-project
+.git directories. 'bash' works this way, with /etc/bashrc and ~/.bashrc.
+
+It's a really helpful pattern used in many Unix apps, especially since it makes
+complex flexible configuration much easier to grasp.  I miss it in a lot of
+Ruby apps.  All that config file reading and path handling is kind of a
 pain.
 
-Ergo: Valise - the place you keep your files.
+Enter Valise, a library to provide a standard, very powerful set of tools
+to load files from a cascading set of directories.
 
 ## Usage
 
