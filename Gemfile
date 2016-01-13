@@ -6,6 +6,7 @@ group :test do
   gem 'cadre'
 end
 
+gem 'corundum'
 gem 'byebug'
 gem 'simplecov-json'
 
