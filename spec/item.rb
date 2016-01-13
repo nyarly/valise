@@ -17,18 +17,18 @@ describe "Invidual items in the set" do
 
   subject { set.find("item") }
 
-  its (:full_path) { should == "root/item" }
+  it { expect(subject.full_path).to eq "root/item" }
 
   describe "#contents=" do
-    its (:contents) { should == "testing" }
+    it { expect(subject.contents).to eq "testing" }
 
     it "raw_file" do
-      subject.raw_file.path.should == "root/item"
+      expect(subject.raw_file.path).to eq "root/item"
     end
 
     it "should make contents available" do
       subject.open do |file|
-        file.read.should == "testing"
+        expect(file.read).to eq "testing"
       end
     end
   end

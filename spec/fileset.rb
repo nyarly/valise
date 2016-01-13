@@ -55,7 +55,7 @@ describe Valise do
     end
   end
 
-  share_examples_for "a populating Valise" do
+  shared_examples_for "a populating Valise" do
     it "should create files on populate" do
       pending
 

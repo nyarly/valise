@@ -37,7 +37,6 @@ GEM
       rake (~> 10.0)
       tilt (> 0)
       valise (~> 1.1.1)
-    multi_json (1.10.1)
     paint (0.8.7)
     rake (10.4.0)
     rspec (2.99.0)
@@ -50,11 +49,11 @@ GEM
     rspec-instafail (0.2.4)
     rspec-mocks (2.99.2)
     ruby-progressbar (1.0.2)
-    simplecov (0.9.1)
+    simplecov (0.11.1)
       docile (~> 1.1.0)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.8.0)
-    simplecov-html (0.8.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     simplecov-json (0.2)
       json
       simplecov
@@ -73,3 +72,6 @@ DEPENDENCIES
   simplecov-json
   tilt
   valise!
+
+BUNDLED WITH
+   1.10.6

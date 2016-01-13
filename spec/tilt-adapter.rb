@@ -16,7 +16,7 @@ describe Valise, "tilt adapter" do
   describe "for ERB" do
 
     it "should be loaded" do
-      defined?(Valise::Strategies::Serialization::Tilt).should be_true
+      expect(defined?(Valise::Strategies::Serialization::Tilt)).to be_truthy
     end
 
     before :each do

@@ -15,10 +15,10 @@ describe Valise::SearchRoot do
   end
 
   it "should find a file in the root" do
-    search_root.present?(%w{file}).should be_true
+    expect(search_root.present?(%w{file})).to eq true
   end
 
   it "should raise PathNotInRoot if path isn't in root" do
-    search_root.present?(%w{nothere}).should be_false
+    expect(search_root.present?(%w{nothere})).to eq false
   end
 end
