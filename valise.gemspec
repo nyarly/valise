@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "valise"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "1.1.4"
+  spec.version		= "1.2.0"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
     lib/valise/path-matcher.rb
     lib/valise/search-root.rb
     lib/valise/set.rb
+    lib/valise/set-filter.rb
     lib/valise/set/definer.rb
     lib/valise/set/extensions-decorator.rb
     lib/valise/stack.rb

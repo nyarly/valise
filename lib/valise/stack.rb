@@ -1,3 +1,4 @@
+
 require 'valise/utils'
 require 'valise/item-enum'
 require 'valise/strategies/merge-diff'
