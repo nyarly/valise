@@ -69,7 +69,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   cadre
-  corundum (= 0.6.0)
+  corundum
   fuubar
   simplecov-json
   tilt
