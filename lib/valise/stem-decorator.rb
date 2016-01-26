@@ -25,7 +25,7 @@ module Valise
 
     def under_stem(path)
       segments = make_pathname(path)
-      if path.fnmatch?(stem_pattern)
+      if path.fnmatch?(stem_pattern, File::FNM_DOTMATCH)
         return path.relative_path_from(@stem)
       else
         raise Errors::PathOutsideOfRoot
