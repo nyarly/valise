@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "valise"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "1.2.0"
+  spec.version		= "1.2.1"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
