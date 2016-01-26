@@ -4,10 +4,6 @@ script: bundle exec rake ci
 matrix:
   include:
     - gemfile: gemfiles/tilt-1.4
-      rvm: 1.9.3
-    - gemfile: gemfiles/tilt-2.0
-      rvm: 1.9.3
-    - gemfile: gemfiles/tilt-1.4
       rvm: 2.0.0
     - gemfile: gemfiles/tilt-2.0
       rvm: 2.0.0

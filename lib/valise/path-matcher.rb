@@ -7,15 +7,15 @@ module Valise
 
     class Pattern
       FLAG_NAMES = {
-        :extended => File::FNM_EXTGLOB,
+        :extended   => File::FNM_EXTGLOB,
         :noextended => ~File::FNM_EXTGLOB,
-        :case => ~File::FNM_CASEFOLD,
-        :nocase => File::FNM_CASEFOLD,
-        :pathname => File::FNM_PATHNAME,
+        :case       => ~File::FNM_CASEFOLD,
+        :nocase     => File::FNM_CASEFOLD,
+        :pathname   => File::FNM_PATHNAME,
         :nopathname => ~File::FNM_PATHNAME,
-        :escape => ~File::FNM_NOESCAPE,
-        :noescape => File::FNM_NOESCAPE,
-        :dotmatch => File::FNM_DOTMATCH,
+        :escape     => ~File::FNM_NOESCAPE,
+        :noescape   => File::FNM_NOESCAPE,
+        :dotmatch   => File::FNM_DOTMATCH,
         :nodotmatch => ~File::FNM_DOTMATCH,
       }
 
