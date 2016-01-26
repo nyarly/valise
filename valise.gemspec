@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "valise"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "1.2.1"
+  spec.version		= "1.2.2"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -68,19 +68,8 @@ Gem::Specification.new do |spec|
   spec.rubygems_version = "1.3.5"
 
   if spec.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     spec.specification_version = 3
-
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      spec.add_development_dependency "corundum"
-    else
-      spec.add_development_dependency "corundum"
-    end
-  else
-    spec.add_development_dependency "corundum"
   end
-
-  #spec.add_dependency "diff-lcs", ">= 1.1"
 
   spec.has_rdoc		= true
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
